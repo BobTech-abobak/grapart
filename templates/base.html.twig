@@ -141,7 +141,7 @@
             <div class="col-1 category-label">{{ label|e }} </div>
             <div class="col-10 category-items">
             {% for subcategory in category %}
-                <a href="{{ subcategory.url }}"/>
+                <a href="/oferta/{{ subcategory.url }}"/>
                 {{ subcategory.label|e }}
                 </a>
                 {% if not loop.last %}
@@ -159,7 +159,7 @@
             {% for label, category in menu %}
                 <div class="category-item">{{ label|e }}</div>
                 {% for subcategory in category %}
-                    <a href="{{ subcategory.url }}" class="menu-link"/>
+                    <a href="/oferta/{{ subcategory.url }}" class="menu-link"/>
                         <div class="menu-item">{{ subcategory.label|e }}</div>
                     </a>
                 {% endfor %}

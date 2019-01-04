@@ -1,13 +1,16 @@
 <?php
 namespace App\Entity;
 
+use Symfony\Component\Config\Definition\Exception\Exception;
+
 class Menu
 {
     protected $_menuStructure = array(
         'Banery' => array (
             array(
                 'label' => 'Baner PCV siatka mesh',
-                'url' => '1.html'
+                'url' => 'testowa_oferta',
+                'file' => 'oferta/testowa_oferta.html.twig'
             ),
             array(
                 'label' => 'Baner PCV odblaskowy',
@@ -53,5 +56,16 @@ class Menu
     public function getMenu()
     {
         return $this->_menuStructure;
+    }
+
+    public function getPositionByUrl($url)
+    {
+        foreach ($this->_menuStructure as $menuLabel) {
+            foreach ($menuLabel as $menuItem) {
+                if ($menuItem['url'] == $url)
+                    return $menuItem;
+            }
+        }
+        throw new Exception('Menu position not found!');
     }
 }

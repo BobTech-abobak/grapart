@@ -1,3 +1,7 @@
 index:
     path: /
     controller: App\Controller\DefaultController::index
+
+services:
+    path: /oferta/{type}
+    controller: App\Controller\ServiceController::index
