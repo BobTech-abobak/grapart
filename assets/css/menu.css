@@ -1,0 +1,107 @@
+
+.menu-item
+{
+    background:rgba(0,0,0,0.8);
+    padding: 3% 3% 3% 8%;
+    font-size: 0.9em;
+    width: 90%;
+    margin: 3% 5% 3% 5%;
+    color: #EEEEEE;
+    box-shadow: 0px 0px 10px #000000;
+}
+
+.menu-item:hover
+{
+    background:rgba(0,0,0,0.2);
+    color: #dd2a1b;
+}
+
+.menu-link:hover
+{
+    text-decoration: none;
+}
+
+.menu-row {
+    margin: 1em 0 1em 0;
+}
+
+.menu-row div {
+    font-size: 1.3em;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 1px;
+    background:rgba(0,0,0,0.8);
+    color: #EEEEEE;
+    box-shadow: 0px 0px 10px #000000;
+}
+
+.menu-row div:hover {
+    background:rgba(0,0,0,0.2);
+    color: #000000;
+    text-shadow: 0px 0px 1px #222222;
+}
+
+.menu-row div.active {
+    background:rgba(0,0,0,0.2);
+    color: #000000;
+    text-shadow: 0px 0px 1px #222222;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.menu-row2 {
+    margin: 1em 0 1em 0;
+}
+
+.menu-row2 div {
+    font-size: 1.3em;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 1px;
+    background:rgba(0,0,0,0.03);
+    color: #000000;
+    box-shadow: 0px 0px 5px #000000;
+}
+
+.menu-row2 div:hover {
+    box-shadow: 0px 0px 5px #dd2a1b;
+    background:rgba(0,0,0,0.06);
+}
+
+.menu-row3 {
+    margin: 1em 2em 1em 2em;
+}
+
+.menu-row3 div {
+    font-size: 1.3em;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 1px;
+    background:rgba(0,0,0,0.03);
+    color: #000000;
+    box-shadow: 0px 0px 5px #000000;
+}
+
+.menu-row3 div:hover {
+    box-shadow: 0px 0px 5px #dd2a1b;
+    background:rgba(0,0,0,0.06);
+}
+
+.menu-row4 {
+    margin: 1em 0 1em 0;
+}
+
+.menu-row4 div.menu-item4 {
+    font-size: 1.3em;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 1px;
+    background:rgba(0,0,0,0.03);
+    color: #000000;
+    box-shadow: 0px 0px 5px #000000;
+}
+
+.menu-row4 div.menu-item4:hover {
+    box-shadow: 0px 0px 5px #dd2a1b;
+    background:rgba(0,0,0,0.06);
+}
