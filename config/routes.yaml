@@ -2,6 +2,10 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
-services:
-    path: /oferta/{type}
-    controller: App\Controller\ServiceController::index
+category:
+    path: /{url}
+    controller: App\Controller\DefaultController::category
+
+subcategory:
+    path: /{categoryUrl}/{url}
+    controller: App\Controller\DefaultController::subcategory

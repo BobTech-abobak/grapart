@@ -6,50 +6,42 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 class Menu
 {
     protected $_menuStructure = array(
-        'Banery' => array (
-            array(
-                'label' => 'Baner PCV siatka mesh',
-                'url' => 'testowa_oferta',
-                'file' => 'oferta/testowa_oferta.html.twig'
-            ),
-            array(
-                'label' => 'Baner PCV odblaskowy',
-                'url' => '2.html'
-            ),
-            array(
-                'label' => 'Baner PCV zwykły',
-                'url' => '2.html'
+        'Oferta' => array(
+            'url' => 'oferta',
+            'file' => 'oferta.html.twig',
+            'has_menu' => false,
+            'submenu' => array(
+                'Baner zwykły' => array (
+                    'url' => 'baner_zwykly',
+                    'file' => 'baner_zwykly.html.twig'
+                ),
+                'Baner odblaskowy' => array (
+                    'url' => 'baner_odblaskowy',
+                    'file' => 'baner_odblaskowy.html.twig'
+                ),
+                'Baner siatka mesh' => array (
+                    'url' => 'baner_siatka_mesh',
+                    'file' => 'baner_siatka_mesh.html.twig'
+                )
             )
         ),
-        'Folie' => array (
-            array(
-                'label' => 'Folia zwykła',
-                'url' => '1.html'
-            ),
-            array(
-                'label' => 'Folia OWV',
-                'url' => '2.html'
-            ),
-            array(
-                'label' => 'Folia odblaskowa',
-                'url' => '2.html'
-            ),
-            array(
-                'label' => 'Folia samochodowa',
-                'url' => '2.html'
-            ),
-            array(
-                'label' => 'Folia kasetonowa',
-                'url' => '2.html'
-            ),
-            array(
-                'label' => 'Folia kredowa',
-                'url' => '2.html'
-            ),
-            array(
-                'label' => 'Folia magnetyczna',
-                'url' => '2.html'
-            )
+        'Realizacje' => array(
+            'url' => 'realizacje',
+            'file' => 'robota.html.twig',
+            'has_menu' => false,
+            'submenu' => array()
+        ),
+        'Opinie' => array(
+            'url' => 'opinie',
+            'file' => 'robota.html.twig',
+            'has_menu' => false,
+            'submenu' => array()
+        ),
+        'Kontakt' => array(
+            'url' => 'kontakt',
+            'file' => 'robota.html.twig',
+            'has_menu' => false,
+            'submenu' => array()
         )
     );
 
@@ -58,14 +50,23 @@ class Menu
         return $this->_menuStructure;
     }
 
-    public function getPositionByUrl($url)
+    public function getCategoryByUrl($url)
     {
-        foreach ($this->_menuStructure as $menuLabel) {
-            foreach ($menuLabel as $menuItem) {
-                if ($menuItem['url'] == $url)
-                    return $menuItem;
-            }
+        foreach ($this->_menuStructure as $category) {
+            if ($category['url'] == $url)
+                return $category;
         }
-        throw new Exception('Menu position not found!');
+        throw new Exception('Category not found!');
+    }
+
+
+    public function getSubcategoryByUrl($categoryUrl, $url)
+    {
+        $category = $this->getCategoryByUrl($categoryUrl);
+        foreach ($category['submenu'] as $subcategory) {
+            if ($subcategory['url'] == $url)
+                return $subcategory;
+        }
+        throw new Exception('Subcategory not found!');
     }
 }
