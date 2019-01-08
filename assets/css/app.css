@@ -6,3 +6,17 @@ body {
 {
     font-family: "Arial";
 }
+
+.breadcrumb {
+    background: transparent;
+    padding: 0 1em 2em 1em;
+    font-size: 0.8em;
+}
+
+.breadcrumb-item a {
+    color: rgba(221, 42, 27, 0.8);
+}
+
+.breadcrumb-item.active {
+    cursor: default;
+}

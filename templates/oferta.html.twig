@@ -5,10 +5,10 @@
     <h3 class="main-content-label">Oferta</h3>
     <hr class="article-separator">
     <ul class="services-list">
-        {% for label, item in subcategory %}
+        {% for item in subcategory %}
             <li>
                 <a href="{{ path('subcategory', {'categoryUrl': category.url, 'url': item.url}) }}">
-                    {{ label|e }}
+                    {{ item.label|e }}
                 </a>
             </li>
         {% endfor %}

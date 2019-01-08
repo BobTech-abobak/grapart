@@ -6,106 +6,130 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 class Menu
 {
     protected $_menuStructure = array(
-        'Oferta' => array(
+        array(
+            'label' => 'Oferta',
             'url' => 'oferta',
             'file' => 'oferta.html.twig',
             'has_menu' => false,
             'submenu' => array(
-                'Baner zwykły' => array (
+                array (
+                    'label' => 'Baner zwykły',
                     'url' => 'baner_zwykly',
                     'file' => 'baner_zwykly.html.twig'
                 ),
-                'Baner odblaskowy' => array (
+                array (
+                    'label' => 'Baner odblaskowy',
                     'url' => 'baner_odblaskowy',
                     'file' => 'baner_odblaskowy.html.twig'
                 ),
-                'Baner siatka mesh' => array (
+                array (
+                    'label' => 'Baner siatka mesh',
                     'url' => 'baner_siatka_mesh',
                     'file' => 'baner_siatka_mesh.html.twig'
                 ),
-                'Folia zwykła (monomeryczna)' => array (
+                array (
+                    'label' => 'Folia zwykła (monomeryczna)',
                     'url' => 'folia_zwykla',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Folia odblaskowa' => array (
+                array (
+                    'label' => 'Folia odblaskowa',
                     'url' => 'folia_odblaskowa',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Folia OWV (One Way Vision)' => array (
+                array (
+                    'label' => 'Folia OWV (One Way Vision)',
                     'url' => 'folia_owv',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Folia samochodowa' => array (
+                array (
+                    'label' => 'Folia samochodowa',
                     'url' => 'folia_samochodowa',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Folia ploterowa' => array (
+                array (
+                    'label' => 'Folia ploterowa',
                     'url' => 'folia_ploterowa',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Flaga' => array (
+                array (
+                    'label' => 'Flaga',
                     'url' => 'flaga',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Magnes' => array (
+                array (
+                    'label' => 'Magnes',
                     'url' => 'magnes',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Rollup' => array (
+                array (
+                    'label' => 'Rollup',
                     'url' => 'rollup',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Szyld' => array (
+                array (
+                    'label' => 'Szyld',
                     'url' => 'szyld',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Kaseton LED' => array (
+                array (
+                    'label' => 'Kaseton LED',
                     'url' => 'kaseton_led',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Litery 3D' => array (
+                array (
+                    'label' => 'Litery 3D',
                     'url' => 'litery_3d',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Obróbka CNC, Cięcie laserem' => array (
+                array (
+                    'label' => 'Obróbka CNC, Cięcie laserem',
                     'url' => 'obrobka_cnc_ciecie_laserem',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Puchary, medale, dyplomy' => array (
+                array (
+                    'label' => 'Puchary, medale, dyplomy',
                     'url' => 'puchary_medale_dyplomy',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Projekty graficzne' => array (
+                array (
+                    'label' => 'Projekty graficzne',
                     'url' => 'projekty_graficzne',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Koszulki z nadrukiem' => array (
+                array (
+                    'label' => 'Koszulki z nadrukiem',
                     'url' => 'koszulki_z_nadrukiem',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Oklejanie witryn, pojazdów' => array (
+                array (
+                    'label' => 'Oklejanie witryn, pojazdów',
                     'url' => 'oklejanie_witryn_pojazdow',
                     'file' => 'folia_zwykla.html.twig'
                 ),
-                'Poligrafia' => array (
+                array (
+                    'label' => 'Poligrafia',
                     'url' => 'poligrafia',
                     'file' => 'folia_zwykla.html.twig'
                 )
             )
         ),
-        'Realizacje' => array(
+        array(
+            'label' => 'Realizacje',
             'url' => 'realizacje',
             'file' => 'robota.html.twig',
             'has_menu' => false,
             'submenu' => array()
         ),
-        'Opinie' => array(
+        array(
+            'label' => 'Opinie',
             'url' => 'opinie',
             'file' => 'robota.html.twig',
             'has_menu' => false,
             'submenu' => array()
         ),
-        'Kontakt' => array(
+        array(
+            'label' => 'Kontakt',
             'url' => 'kontakt',
             'file' => 'robota.html.twig',
             'has_menu' => false,

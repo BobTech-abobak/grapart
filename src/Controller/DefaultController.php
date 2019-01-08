@@ -42,6 +42,7 @@ class DefaultController extends AbstractController
         } catch (\Exception $exception) {
             return new Response("", 404);
         }
+
         return $this->render($category['url'] . DIRECTORY_SEPARATOR . $subcategory['file'], [
             'menu' => $menu->getMenu(),
             'category' => $category,
