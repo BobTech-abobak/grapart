@@ -2,26 +2,23 @@
     padding: 0.5em 0 1.5em 0;
 }
 
-.menu-row div {
+.menu-row a {
     font-size: 1.3em;
     text-align: center;
     letter-spacing: 3px;
-	padding: 0.3em;
-}
-
-.menu-row div a {
+    padding: 0.3em;
     color: #FFFFFF;
     cursor: pointer;
     text-decoration: none;
 }
 
-.menu-row div a:hover {
+.menu-row a:hover {
     color: rgba(221,42,27,1);
 }
 
-.menu-row div.active {
-	border-bottom: 3px solid rgba(221,42,27,0.8);
-	font-style: italic;
+.menu-row .active {
+    border-bottom: 3px solid rgba(221,42,27,0.8);
+    font-style: italic;
 }
 
 .submenu-item a {
@@ -32,4 +29,8 @@
 
 .submenu-item a:hover {
     border-bottom: 1px solid rgba(221,42,27,0.8);
+}
+
+.submenu-item .active {
+    font-weight: bolder;
 }

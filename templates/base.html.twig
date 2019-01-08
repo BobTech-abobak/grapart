@@ -51,20 +51,18 @@
         </a>
     </div>
     <div class="row menu-row">
-        {% for label, category in menu %}
-            <div class="col">
-                <a href="{{ path('category', {'url': category.url}) }}">
-                    {{ label|e }}
-                </a>
-            </div>
+        {% for label, category_data in menu %}
+            <a href="{{ path('category', {'url': category_data.url}) }}" class="col {% if category is defined and category_data.url == category.url %}active{% endif %}">
+                {{ label|e }}
+            </a>
         {% endfor %}
     </div>
     <div class="row main-row">
         {% if has_menu %}
             <div class="col-3">
-                {% for label, item in subcategory %}
-                    <div class="col-12 submenu-item">
-                        <a href="{{ path('subcategory', {'categoryUrl': category.url, 'url': item.url}) }}">
+                {% for label, item in submenu %}
+                    <div class="col-10 offset-lg-1 submenu-item">
+                        <a href="{{ path('subcategory', {'categoryUrl': category.url, 'url': item.url}) }}" {% if item.url == subcategory.url %}class="active"{% endif %}>
                             {{ label|e }}
                         </a>
                     </div>

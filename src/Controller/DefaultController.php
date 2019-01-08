@@ -46,7 +46,8 @@ class DefaultController extends AbstractController
             'menu' => $menu->getMenu(),
             'category' => $category,
             'has_menu' => !empty($category['submenu']),
-            'subcategory' => $category['submenu']
+            'submenu' => $category['submenu'],
+            'subcategory' => $subcategory
         ]);
     }
 }

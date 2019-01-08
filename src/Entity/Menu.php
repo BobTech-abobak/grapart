@@ -22,6 +22,74 @@ class Menu
                 'Baner siatka mesh' => array (
                     'url' => 'baner_siatka_mesh',
                     'file' => 'baner_siatka_mesh.html.twig'
+                ),
+                'Folia zwykła (monomeryczna)' => array (
+                    'url' => 'folia_zwykla',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Folia odblaskowa' => array (
+                    'url' => 'folia_odblaskowa',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Folia OWV (One Way Vision)' => array (
+                    'url' => 'folia_owv',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Folia samochodowa' => array (
+                    'url' => 'folia_samochodowa',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Folia ploterowa' => array (
+                    'url' => 'folia_ploterowa',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Flaga' => array (
+                    'url' => 'flaga',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Magnes' => array (
+                    'url' => 'magnes',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Rollup' => array (
+                    'url' => 'rollup',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Szyld' => array (
+                    'url' => 'szyld',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Kaseton LED' => array (
+                    'url' => 'kaseton_led',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Litery 3D' => array (
+                    'url' => 'litery_3d',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Obróbka CNC, Cięcie laserem' => array (
+                    'url' => 'obrobka_cnc_ciecie_laserem',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Puchary, medale, dyplomy' => array (
+                    'url' => 'puchary_medale_dyplomy',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Projekty graficzne' => array (
+                    'url' => 'projekty_graficzne',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Koszulki z nadrukiem' => array (
+                    'url' => 'koszulki_z_nadrukiem',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Oklejanie witryn, pojazdów' => array (
+                    'url' => 'oklejanie_witryn_pojazdow',
+                    'file' => 'folia_zwykla.html.twig'
+                ),
+                'Poligrafia' => array (
+                    'url' => 'poligrafia',
+                    'file' => 'folia_zwykla.html.twig'
                 )
             )
         ),
