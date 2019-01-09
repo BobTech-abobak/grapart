@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-4">
+            <h3 class="contact-label">
+                <i class="fas fa-address-card"></i>
+                Nazwa firmy
+            </h3>
+            <h6 class="contact-content">GrapArt Studio Reklamy<br/>Grzegorz Bobak</h6>
+            <hr class="contact-separator">
+            <h3 class="contact-label">
+                <i class="fas fa-money-check-alt"></i>
+                NIP
+            </h3>
+            <h6 class="contact-content">123456789</h6>
+            <hr class="contact-separator">
+            <h3 class="contact-label">
+                <i class="fas fa-piggy-bank"></i>
+                Numer konta bankowego
+            </h3>
+            <h6 class="contact-content">1111-1111-1111-1111-1111-1111</h6>
+            <hr class="contact-separator">
+            <h3 class="contact-label">
+                <i class="fas fa-home fa-1x"></i>
+                Adres firmy
+            </h3>
+            <h6 class="contact-content">ZĄB, SZLAK PAPIESKI 220<br/>34-521 ZĄB
+                <br /><br />
+                <span class="contact-mini-content">Biuro czynne od poniedziałku do piątku<br />Od 8:00 do 16:00</span>
+            </h6>
+            <hr class="contact-separator">
+            <h3 class="contact-label">
+                <i class="fas fa-phone-square fa-1x header-icon"></i>
+                Telefon
+            </h3>
+            <h6 class="contact-content">123 456 789</h6>
+            <hr class="contact-separator">
+            <h3 class="contact-label">
+                <i class="fas fa-envelope fa-1x header-icon"></i>
+                E-mail
+            </h3>
+            <h6 class="contact-content">reklama@grapart.pl</h6>
+            <hr class="contact-separator">
+            <h3 class="contact-label">
+                <i class="fab fa-facebook-square fa-1x header-icon"></i>
+                Facebook
+            </h3>
+            <h6 class="contact-content">GrapArt</h6>
+        </div>
+        <div class="col-lg-8">
+            <img src="{{ asset('build/images/mapa.png') }}" alt="Mapa" class="img-fluid"/>
+            <br /><br /><br />
+            <h3 class="contact-label">Formularz kontaktowy</h3>
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" placeholder="Adres e-mail">
+                    <small id="emailHelp" class="form-text text-muted">Podaj swój adres e-mail, dzieki temu bęziemy mogli się z Tobą skontaktować</small>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="message" rows="3"  placeholder="Wiadomość"></textarea>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-default">Wyślij wiadomość</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br /><br /><br />
+
+{% endblock %}

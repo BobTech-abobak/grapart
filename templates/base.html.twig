@@ -38,10 +38,10 @@
             </span>
         </div>
         <div class="col text-center">
-            <div class="address-link">
+            <div>
                 <i class="fas fa-home fa-1x header-icon"></i>
                 &nbsp;
-                <span class="header-label">ZĄB, SZLAK PAPIESKI 220</span><br />
+                <span class="header-label">ZĄB, SZLAK PAPIESKI 220</span>
             </div>
         </div>
     </div>
@@ -69,7 +69,7 @@
                 {% endfor %}
             </div>
         {% endif %}
-        <div class="{% if has_menu %}col-8{% else %}offset-lg-2 col-lg-7{% endif %}" id="main-content">
+        <div class="{% if has_menu %}col-8{% else %}offset-lg-2 col-lg-8{% endif %}" id="main-content">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     {% if app.request.attributes.get('_route') == 'index' %}

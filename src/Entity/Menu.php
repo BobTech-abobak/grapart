@@ -131,7 +131,7 @@ class Menu
         array(
             'label' => 'Kontakt',
             'url' => 'kontakt',
-            'file' => 'robota.html.twig',
+            'file' => 'kontakt.html.twig',
             'has_menu' => false,
             'submenu' => array()
         )

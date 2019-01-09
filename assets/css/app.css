@@ -20,3 +20,12 @@ body {
 .breadcrumb-item.active {
     cursor: default;
 }
+
+.btn-default {
+    background-color: rgba(221, 42, 27, 0.8);
+    color: #FFFFFF;
+}
+
+.btn-default:hover {
+    background-color: rgba(221, 42, 27, 1);
+}
