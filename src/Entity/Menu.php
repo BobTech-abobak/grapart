@@ -35,82 +35,82 @@ class Menu
                 array (
                     'label' => 'Folia odblaskowa',
                     'url' => 'folia_odblaskowa',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'folia_odblaskowa.html.twig'
                 ),
                 array (
                     'label' => 'Folia OWV (One Way Vision)',
                     'url' => 'folia_owv',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'folia_owv.html.twig'
                 ),
                 array (
                     'label' => 'Folia samochodowa',
                     'url' => 'folia_samochodowa',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'folia_samochodowa.html.twig'
                 ),
                 array (
                     'label' => 'Folia ploterowa',
                     'url' => 'folia_ploterowa',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'folia_ploterowa.html.twig'
                 ),
                 array (
                     'label' => 'Flaga',
                     'url' => 'flaga',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'flaga.html.twig'
                 ),
                 array (
                     'label' => 'Magnes',
                     'url' => 'magnes',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'magnes.html.twig'
                 ),
                 array (
                     'label' => 'Rollup',
                     'url' => 'rollup',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'rollup.html.twig'
                 ),
                 array (
                     'label' => 'Szyld',
                     'url' => 'szyld',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'szyld.html.twig'
                 ),
                 array (
                     'label' => 'Kaseton LED',
                     'url' => 'kaseton_led',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'kaseton_led.html.twig'
                 ),
                 array (
                     'label' => 'Litery 3D',
                     'url' => 'litery_3d',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'litery_3d.html.twig'
                 ),
                 array (
                     'label' => 'Obróbka CNC, Cięcie laserem',
                     'url' => 'obrobka_cnc_ciecie_laserem',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'obrobka_cnc_ciecie_laserem.html.twig'
                 ),
                 array (
                     'label' => 'Puchary, medale, dyplomy',
                     'url' => 'puchary_medale_dyplomy',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'puchary_medale_dyplomy.html.twig'
                 ),
                 array (
                     'label' => 'Projekty graficzne',
                     'url' => 'projekty_graficzne',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'projekty_graficzne.html.twig'
                 ),
                 array (
                     'label' => 'Koszulki z nadrukiem',
                     'url' => 'koszulki_z_nadrukiem',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'koszulki_z_nadrukiem.html.twig'
                 ),
                 array (
                     'label' => 'Oklejanie witryn, pojazdów',
                     'url' => 'oklejanie_witryn_pojazdow',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'oklejanie_witryn_pojazdow.html.twig'
                 ),
                 array (
                     'label' => 'Poligrafia',
                     'url' => 'poligrafia',
-                    'file' => 'folia_zwykla.html.twig'
+                    'file' => 'poligrafia.html.twig'
                 )
             )
         ),
