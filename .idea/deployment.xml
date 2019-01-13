@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="szkla56">
+  <component name="PublishConfigData" serverName="hosting_house">
     <serverData>
+      <paths name="hosting_house">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/domains/grapart.pl" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="szkla56">
         <serverdata>
           <mappings>

@@ -3,8 +3,8 @@
 <head>
     <title>{% block title '' %} Grapart.pl</title>
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
     {{ encore_entry_link_tags('app') }}
 </head>
@@ -40,12 +40,11 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row banner-row">
         <a href="{{ path('index') }}">
-            <img class="main-banner" src="{{ asset('build/images/main_banner_2.jpg') }}" />
-            <img class="main-banner-1" src="{{ asset('build/images/main_banner_2a.png') }}" />
-            <img class="main-banner-2" src="{{ asset('build/images/main_banner_2b.png') }}" />
-            <img class="main-banner-3" src="{{ asset('build/images/main_banner_2c.png') }}" />
+            <div class="col-12">
+                <img class="main-banner" src="{{ asset('build/images/main_banner.jpg') }}" />
+            </div>
         </a>
     </div>
     <div class="row menu-row">

@@ -11,3 +11,10 @@
     top:0;
     display:none;
 }
+
+.banner-row a {
+    width: 100%;
+}
+.banner-row div {
+    padding: 0;
+}

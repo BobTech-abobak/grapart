@@ -1,6 +1,10 @@
 // Add global scss file
 require('../css/global.scss');
 
+// Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
+const $ = require('jquery');
+require('bootstrap');
+
 // Add font-awesome
 require('@fortawesome/fontawesome-free/js/all.js');
 
@@ -15,30 +19,3 @@ require('../css/menu.css');
 
 // Add images
 require('./images.js');
-
-// Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-const $ = require('jquery');
-require('bootstrap');
-
-$(document).ready(function(){
-    mainBannerAnimation();
-});
-
-function mainBannerAnimation()
-{
-    setTimeout(
-        function () {
-            $(".main-banner-1").fadeIn();
-        }, 2000
-    );
-    setTimeout(
-        function () {
-            $(".main-banner-2").fadeIn();
-        }, 4000
-    );
-    setTimeout(
-        function () {
-            $(".main-banner-3").slideDown();
-        }, 6000
-    );
-}
