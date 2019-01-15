@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends AbstractController
 {
+    const DIRECTORY_NAME = "static_sites";
+
     public function index()
     {
         $menu = new Menu();
@@ -23,32 +25,18 @@ class DefaultController extends AbstractController
         try {
             $category = $menu->getCategoryByUrl($url);
         } catch (\Exception $exception) {
+            var_dump($exception);
             return new Response("", 404);
         }
-        return $this->render($category['file'], [
+
+        return $this->render(self::DIRECTORY_NAME . DIRECTORY_SEPARATOR . $category['file'], [
             'menu' => $menu->getMenu(),
-            'category' => $category,
-            'has_menu' => $category['has_menu'],
-            'subcategory' => $category['submenu']
+            'category' => $category
         ]);
     }
 
-    public function subcategory($categoryUrl, $url)
+    public function contact()
     {
-        $menu = new Menu();
-        try {
-            $category = $menu->getCategoryByUrl($categoryUrl);
-            $subcategory = $menu->getSubcategoryByUrl($categoryUrl, $url);
-        } catch (\Exception $exception) {
-            return new Response("", 404);
-        }
-
-        return $this->render($category['url'] . DIRECTORY_SEPARATOR . $subcategory['file'], [
-            'menu' => $menu->getMenu(),
-            'category' => $category,
-            'has_menu' => !empty($category['submenu']),
-            'submenu' => $category['submenu'],
-            'subcategory' => $subcategory
-        ]);
+        return $this->render('kontakt.html.twig');
     }
 }

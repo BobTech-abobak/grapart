@@ -1,5 +1,38 @@
 {% extends "base.html.twig" %}
 
+{% block breadcrumb %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Strona główna</li>
+        </ol>
+    </nav>
+{% endblock %}
+
+{% block menu %}
+    <ul class="menu">
+    {% for category in menu %}
+        {% if category.children is defined %}
+            <li>{{ category.label }}</li>
+            <ul>
+                {% for item in category.children %}
+                    <li>
+                        <a href="{{ path('category', {'url': item.url}) }}" class="active">
+                            {{ item.label|e }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <li>
+                <a href="{{ path('category', {'url': category.url}) }}" class="active">
+                    {{ category.label|e }}
+                </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}
+
 {% block content %}
 
     <h3 class="main-content-label">O nas</h3>

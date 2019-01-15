@@ -1,36 +1,29 @@
-.menu-row {
-    padding: 0.5em 0 1.5em 0;
+.menu {
+    padding: 1em;
+    list-style-type: none;
 }
 
-.menu-row a {
-    font-size: 1.3em;
-    text-align: center;
-    letter-spacing: 3px;
-    padding: 0.3em;
+.menu li {
+    list-style-type: none;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0.1em 0 0.1em 0;
+    cursor: default;
+}
+
+.menu ul {
+    padding-inline-start: 1em;
+}
+
+.menu li a {
     color: #FFFFFF;
-    cursor: pointer;
+}
+
+.menu li a:hover {
     text-decoration: none;
+    border-bottom:1px solid rgba(221, 42, 27, 1);
 }
 
-.menu-row a:hover {
-    color: rgba(221,42,27,1);
-}
-
-.menu-row .active {
-    border-bottom: 3px solid rgba(221,42,27,0.8);
-    font-style: italic;
-}
-
-.submenu-item a {
-    color: #EEEEEE;
-    text-decoration: none;
-}
-
-
-.submenu-item a:hover {
-    border-bottom: 1px solid rgba(221,42,27,0.8);
-}
-
-.submenu-item .active {
+.menu a.active {
     font-weight: bolder;
+    font-style: italic;
 }

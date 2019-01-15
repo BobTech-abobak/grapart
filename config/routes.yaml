@@ -2,10 +2,10 @@ index:
     path: /
     controller: App\Controller\DefaultController::index
 
+contact:
+    path: /kontakt
+    controller: App\Controller\DefaultController::contact
+
 category:
     path: /{url}
     controller: App\Controller\DefaultController::category
-
-subcategory:
-    path: /{categoryUrl}/{url}
-    controller: App\Controller\DefaultController::subcategory

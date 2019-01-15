@@ -1,5 +1,14 @@
 {% extends "base.html.twig" %}
 
+{% block breadcrumb %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('index') }}">Strona główna</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Kontakt</li>
+        </ol>
+    </nav>
+{% endblock %}
+
 {% block content %}
 
     <div class="row">
@@ -14,7 +23,7 @@
                 <i class="fas fa-money-check-alt"></i>
                 NIP
             </h3>
-            <h6 class="contact-content">123456789</h6>
+            <h6 class="contact-content"> /h6>
             <hr class="contact-separator">
             <h3 class="contact-label">
                 <i class="fas fa-piggy-bank"></i>
@@ -35,7 +44,7 @@
                 <i class="fas fa-phone-square fa-1x header-icon"></i>
                 Telefon
             </h3>
-            <h6 class="contact-content">123 456 789</h6>
+            <h6 class="contact-content">505 034 758</h6>
             <hr class="contact-separator">
             <h3 class="contact-label">
                 <i class="fas fa-envelope fa-1x header-icon"></i>

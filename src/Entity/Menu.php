@@ -7,11 +7,8 @@ class Menu
 {
     protected $_menuStructure = array(
         array(
-            'label' => 'Oferta',
-            'url' => 'oferta',
-            'file' => 'oferta.html.twig',
-            'has_menu' => false,
-            'submenu' => array(
+            'label' => 'Banery',
+            'children' => array(
                 array (
                     'label' => 'Baner zwykły',
                     'url' => 'baner_zwykly',
@@ -26,7 +23,12 @@ class Menu
                     'label' => 'Baner siatka mesh',
                     'url' => 'baner_siatka_mesh',
                     'file' => 'baner_siatka_mesh.html.twig'
-                ),
+                )
+            )
+        ),
+        array(
+            'label' => 'Folie',
+            'children' => array(
                 array (
                     'label' => 'Folia zwykła (monomeryczna)',
                     'url' => 'folia_zwykla',
@@ -51,89 +53,68 @@ class Menu
                     'label' => 'Folia ploterowa',
                     'url' => 'folia_ploterowa',
                     'file' => 'folia_ploterowa.html.twig'
-                ),
-                array (
-                    'label' => 'Flaga',
-                    'url' => 'flaga',
-                    'file' => 'flaga.html.twig'
-                ),
-                array (
-                    'label' => 'Magnes',
-                    'url' => 'magnes',
-                    'file' => 'magnes.html.twig'
-                ),
-                array (
-                    'label' => 'Rollup',
-                    'url' => 'rollup',
-                    'file' => 'rollup.html.twig'
-                ),
-                array (
-                    'label' => 'Szyld',
-                    'url' => 'szyld',
-                    'file' => 'szyld.html.twig'
-                ),
-                array (
-                    'label' => 'Kaseton LED',
-                    'url' => 'kaseton_led',
-                    'file' => 'kaseton_led.html.twig'
-                ),
-                array (
-                    'label' => 'Litery 3D',
-                    'url' => 'litery_3d',
-                    'file' => 'litery_3d.html.twig'
-                ),
-                array (
-                    'label' => 'Obróbka CNC, Cięcie laserem',
-                    'url' => 'obrobka_cnc_ciecie_laserem',
-                    'file' => 'obrobka_cnc_ciecie_laserem.html.twig'
-                ),
-                array (
-                    'label' => 'Puchary, medale, dyplomy',
-                    'url' => 'puchary_medale_dyplomy',
-                    'file' => 'puchary_medale_dyplomy.html.twig'
-                ),
-                array (
-                    'label' => 'Projekty graficzne',
-                    'url' => 'projekty_graficzne',
-                    'file' => 'projekty_graficzne.html.twig'
-                ),
-                array (
-                    'label' => 'Koszulki z nadrukiem',
-                    'url' => 'koszulki_z_nadrukiem',
-                    'file' => 'koszulki_z_nadrukiem.html.twig'
-                ),
-                array (
-                    'label' => 'Oklejanie witryn, pojazdów',
-                    'url' => 'oklejanie_witryn_pojazdow',
-                    'file' => 'oklejanie_witryn_pojazdow.html.twig'
-                ),
-                array (
-                    'label' => 'Poligrafia',
-                    'url' => 'poligrafia',
-                    'file' => 'poligrafia.html.twig'
                 )
             )
         ),
-        array(
-            'label' => 'Realizacje',
-            'url' => 'realizacje',
-            'file' => 'robota.html.twig',
-            'has_menu' => false,
-            'submenu' => array()
+        array (
+            'label' => 'Flaga',
+            'url' => 'flaga',
+            'file' => 'flaga.html.twig'
         ),
-        array(
-            'label' => 'Opinie',
-            'url' => 'opinie',
-            'file' => 'robota.html.twig',
-            'has_menu' => false,
-            'submenu' => array()
+        array (
+            'label' => 'Magnes',
+            'url' => 'magnes',
+            'file' => 'magnes.html.twig'
         ),
-        array(
-            'label' => 'Kontakt',
-            'url' => 'kontakt',
-            'file' => 'kontakt.html.twig',
-            'has_menu' => false,
-            'submenu' => array()
+        array (
+            'label' => 'Rollup',
+            'url' => 'rollup',
+            'file' => 'rollup.html.twig'
+        ),
+        array (
+            'label' => 'Szyld',
+            'url' => 'szyld',
+            'file' => 'szyld.html.twig'
+        ),
+        array (
+            'label' => 'Kaseton LED',
+            'url' => 'kaseton_led',
+            'file' => 'kaseton_led.html.twig'
+        ),
+        array (
+            'label' => 'Litery 3D',
+            'url' => 'litery_3d',
+            'file' => 'litery_3d.html.twig'
+        ),
+        array (
+            'label' => 'Obróbka CNC, Cięcie laserem',
+            'url' => 'obrobka_cnc_ciecie_laserem',
+            'file' => 'obrobka_cnc_ciecie_laserem.html.twig'
+        ),
+        array (
+            'label' => 'Puchary, medale, dyplomy',
+            'url' => 'puchary_medale_dyplomy',
+            'file' => 'puchary_medale_dyplomy.html.twig'
+        ),
+        array (
+            'label' => 'Projekty graficzne',
+            'url' => 'projekty_graficzne',
+            'file' => 'projekty_graficzne.html.twig'
+        ),
+        array (
+            'label' => 'Koszulki z nadrukiem',
+            'url' => 'koszulki_z_nadrukiem',
+            'file' => 'koszulki_z_nadrukiem.html.twig'
+        ),
+        array (
+            'label' => 'Oklejanie witryn, pojazdów',
+            'url' => 'oklejanie_witryn_pojazdow',
+            'file' => 'oklejanie_witryn_pojazdow.html.twig'
+        ),
+        array (
+            'label' => 'Poligrafia',
+            'url' => 'poligrafia',
+            'file' => 'poligrafia.html.twig'
         )
     );
 
@@ -142,23 +123,22 @@ class Menu
         return $this->_menuStructure;
     }
 
-    public function getCategoryByUrl($url)
+    public function getCategoryByUrl($url, $mainCategory = null)
     {
-        foreach ($this->_menuStructure as $category) {
-            if ($category['url'] == $url)
+        if ($mainCategory == null) {
+            $mainCategory = $this->_menuStructure;
+        }
+        foreach ($mainCategory as $category) {
+            if (array_key_exists('url', $category) && $category['url'] == $url) {
                 return $category;
+            } elseif (array_key_exists('children', $category) && is_array($category['children'])) {
+                if (($result = $this->getCategoryByUrl($url, $category['children'])) !== null) {
+                    return $result;
+                }
+            }
         }
-        throw new Exception('Category not found!');
-    }
-
-
-    public function getSubcategoryByUrl($categoryUrl, $url)
-    {
-        $category = $this->getCategoryByUrl($categoryUrl);
-        foreach ($category['submenu'] as $subcategory) {
-            if ($subcategory['url'] == $url)
-                return $subcategory;
+        if ($mainCategory == null) {
+            throw new Exception('Category not found!');
         }
-        throw new Exception('Subcategory not found!');
     }
 }

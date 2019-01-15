@@ -9,7 +9,7 @@ body {
 
 .breadcrumb {
     background: transparent;
-    padding: 0 1em 2em 1em;
+    padding: 0 1em 2em 0.5em;
     font-size: 0.8em;
 }
 
