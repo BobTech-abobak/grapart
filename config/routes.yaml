@@ -6,6 +6,10 @@ contact:
     path: /kontakt
     controller: App\Controller\DefaultController::contact
 
+sitemap:
+    path: /mapa
+    controller: App\Controller\DefaultController::sitemap
+
 category:
     path: /{url}
     controller: App\Controller\DefaultController::category

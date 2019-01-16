@@ -14,8 +14,7 @@ class DefaultController extends AbstractController
         $menu = new Menu();
 
         return $this->render('index.html.twig', [
-            'menu' => $menu->getMenu(),
-            'has_menu' => false
+            'menu' => $menu->getMenu()
         ]);
     }
 
@@ -25,7 +24,6 @@ class DefaultController extends AbstractController
         try {
             $category = $menu->getCategoryByUrl($url);
         } catch (\Exception $exception) {
-            var_dump($exception);
             return new Response("", 404);
         }
 
@@ -38,5 +36,14 @@ class DefaultController extends AbstractController
     public function contact()
     {
         return $this->render('kontakt.html.twig');
+    }
+
+
+    public function sitemap()
+    {
+        $menu = new Menu();
+        return $this->render('mapa.html.twig', [
+            'menu' => $menu->getMenu()
+        ]);
     }
 }

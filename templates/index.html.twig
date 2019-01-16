@@ -16,7 +16,7 @@
             <ul>
                 {% for item in category.children %}
                     <li>
-                        <a href="{{ path('category', {'url': item.url}) }}" class="active">
+                        <a href="{{ path('category', {'url': item.url}) }}">
                             {{ item.label|e }}
                         </a>
                     </li>
@@ -24,7 +24,7 @@
             </ul>
         {% else %}
             <li>
-                <a href="{{ path('category', {'url': category.url}) }}" class="active">
+                <a href="{{ path('category', {'url': category.url}) }}">
                     {{ category.label|e }}
                 </a>
             </li>

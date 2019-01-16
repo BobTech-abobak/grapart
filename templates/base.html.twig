@@ -15,7 +15,7 @@
             <a href="http://www.facebook.com" class="facebook-link">
                 <i class="fab fa-facebook-square fa-1x header-icon"></i>
                 &nbsp;&nbsp;
-                <span class="header-label">Studio Reklamy GrapArt</span>
+                <span class="header-label">Studio Reklamy Grapart</span>
             </a>
         </div>
         <div class="col text-center">
@@ -35,7 +35,7 @@
         <div class="col text-center">
             <div>
                 <a href="{{ path('contact') }}">
-                    <i class="fas fa-home fa-1x header-icon"></i>
+                    <i class="fas fa-map-marker-alt header-icon"></i>
                     &nbsp;
                     <span class="header-label">Ząb, Szlak Papieski 220</span>
                 </a>
@@ -62,9 +62,18 @@
         </div>
         <div class="col-1"></div>
     </div>
-    <div class="row">
-        <div class="col-12 footer">
-            &copy; Copyright {{ "now"|date("Y") }} by grapart.pl
+    <div class="row footer">
+        <div class="col-lg-2">
+            <a href="{{ path('contact') }}">
+                <i class="fas fa-home fa-1x"></i>
+                &nbsp;
+                Kontakt
+            </a>
+        </div>
+        <div class="col-lg-3 offset-lg-7">
+            <span class="author">&copy; Copyright {{ "now"|date("Y") }} by grapart.pl</span>
+            &nbsp;|&nbsp;
+            <a href="{{ path('sitemap') }}">Mapa Strony</a>
         </div>
     </div>
 

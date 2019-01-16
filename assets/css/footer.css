@@ -1,7 +1,19 @@
-.footer {
+.footer div {
     text-align: center;
     color: #dd2a1b;
     font-size: 0.8em;
     padding: 1em;
-    cursor: none;
+}
+
+.footer div a {
+    color: #dd2a1b;
+}
+
+.footer div a:hover {
+    text-decoration: none;
+    color: #f74b39;
+}
+
+.footer .author {
+    cursor: default;
 }
