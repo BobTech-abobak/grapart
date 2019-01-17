@@ -49,9 +49,15 @@
             </div>
         </div>
     </div>
-    <div class="row header-row-blank">
-        <i class="fas fa-map-marker-alt fa-3x d-lg-none">qwe</i>
-        <i class="fas fa-map-marker-alt fa-1x d-none d-lg-inline"><div class="col-12"></div></i>
+    <div class="row header-row-blank invisible">
+        <div class="col-lg-3 col-2 text-center">
+            <a href="http://www.facebook.com" class="facebook-link">
+                <i class="fab fa-facebook-square fa-3x header-icon d-lg-none"></i>
+                <i class="fab fa-facebook-square fa-1x header-icon d-none d-lg-inline"></i>
+                &nbsp;&nbsp;
+                <span class="header-label d-none d-lg-inline">Studio Reklamy Grapart</span>
+            </a>
+        </div>
     </div>
     <div class="row banner-row">
         <a href="{{ path('index') }}">
@@ -60,13 +66,34 @@
             </div>
         </a>
     </div>
+    {# Menu Mobile #}
+    <div class="row menu-mobile">
+        <div class="col-12">
+            <a href="#" class="menu-mobile-close">&times;</a>
+            {% for category in menu %}
+                {% if category.children is defined %}
+                    {% for item in category.children %}
+                        <a href="{{ path('category', {'url': item.url}) }}">{{  item.label|e }}</a>
+                    {% endfor %}
+                {% else %}
+                    <a href="{{ path('category', {'url': category.url}) }}">{{ category.label|e }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
     <div class="row main-row">
-        {% if menu is defined %}
-            <div class="col-lg-3">
-                {% block menu %}{% endblock %}
+        {% if block('menu_block') is defined %}
+            {% set menu_block = block('menu_block') %}
+        {% else %}
+            {% set menu_block = '' %}
+        {% endif %}
+        {# Menu Desktop #}
+        {% if menu_block is not empty %}
+            <div class="col-lg-3 d-none d-lg-block">
+                {{ menu_block|raw }}
             </div>
         {% endif %}
-        <div class="{% if menu is defined %}col-lg-9{% else %}offset-lg-2 col-lg-8{% endif %}" id="main-content">
+        <div class="{% if menu_block is not empty %}col-lg-9 offset-lg-0{% else %}offset-lg-2 col-lg-8{% endif %} col-10 offset-1" id="main-content">
 
             {% block breadcrumb %}{% endblock %}
             {% block content %}{% endblock %}
@@ -74,17 +101,18 @@
         <div class="col-1"></div>
     </div>
     <div class="row footer">
-        <div class="col-lg-2">
+        <div class="text-left p-4 col-sm-6 col-4">
             <a href="{{ path('contact') }}">
                 <i class="fas fa-home fa-1x"></i>
                 &nbsp;
                 Kontakt
             </a>
         </div>
-        <div class="col-lg-3 offset-lg-7">
+        <div class="col-sm-6 p-4 col-8 text-right">
             <span class="author">&copy; Copyright {{ "now"|date("Y") }} by grapart.pl</span>
             &nbsp;|&nbsp;
-            <a href="{{ path('sitemap') }}">Mapa Strony</a>
+            <a href="{{ path('sitemap') }}" class="d-none d-sm-inline">Mapa Strony</a>
+            <a href="{{ path('sitemap') }}" class="d-inline d-sm-none">Mapa</a>
         </div>
     </div>
 

@@ -35,13 +35,18 @@ class DefaultController extends AbstractController
 
     public function contact()
     {
-        return $this->render('kontakt.html.twig');
+        $menu = new Menu();
+
+        return $this->render('kontakt.html.twig', [
+            'menu' => $menu->getMenu()
+        ]);
     }
 
 
     public function sitemap()
     {
         $menu = new Menu();
+
         return $this->render('mapa.html.twig', [
             'menu' => $menu->getMenu()
         ]);

@@ -30,6 +30,7 @@
 
 .menu-icon {
     cursor: pointer;
+    padding-left: 0.1em;
 }
 
 .menu-mobile {
@@ -39,26 +40,28 @@
     z-index: 5; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
+    background-color: rgba(0,0,0, 1);
+    overflow: hidden; /* Disable horizontal scroll */
+    padding-top: 1em;
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .menu-mobile a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #FFFFFF;
     display: block;
     transition: 0.3s;
 }
 
 .menu-mobile a:hover {
-    color: #f1f1f1;
+    color: rgba(221, 42, 27, 1);
 }
 
-.menu-mobile .closebtn {
+.menu-mobile .menu-mobile-close {
     position: absolute;
     top: 0;
     right: 25px;

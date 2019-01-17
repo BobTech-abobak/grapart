@@ -22,12 +22,10 @@ require('./images.js');
 
 $(document).ready(function(){
     // Menu animation
-    console.log('qweqq');
     $(".menu-icon").on("click", function() {
-        console.log('qwe');
-        $(".menu-mobile").css('width', '250px');
+        $(".menu-mobile").css('width', '80%');
     });
-    $(".menu-mobile .closebtn").on("click", function() {
+    $(".menu-mobile").on("click", function() {
         $(".menu-mobile").css('width', '0px');
     });
 });
