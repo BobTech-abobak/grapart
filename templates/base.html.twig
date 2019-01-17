@@ -11,36 +11,47 @@
 <body>
 <div class="container-fluid main-container">
     <div class="row header-row">
-        <div class="col text-center">
+        <div class="d-lg-none col-3" style="color:#FFFFFF">
+            <i class="fas fa-bars fa-3x header-icon menu-icon d-lg-none"></i>
+        </div>
+        <div class="col-lg-3 col-2 text-center">
             <a href="http://www.facebook.com" class="facebook-link">
-                <i class="fab fa-facebook-square fa-1x header-icon"></i>
+                <i class="fab fa-facebook-square fa-3x header-icon d-lg-none"></i>
+                <i class="fab fa-facebook-square fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
-                <span class="header-label">Studio Reklamy Grapart</span>
+                <span class="header-label d-none d-lg-inline">Studio Reklamy Grapart</span>
             </a>
         </div>
-        <div class="col text-center">
+        <div class="col-lg-3 col-2 text-center">
             <span class="mail-link" data-toggle="modal" data-target="#modalMessage" data-whatever="@mdo">
-                <i class="fas fa-envelope fa-1x header-icon"></i>
+                <i class="fas fa-envelope fa-3x header-icon d-lg-none"></i>
+                <i class="fas fa-envelope fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
-                <span class="header-label">reklama@grapart.pl</span>
+                <span class="header-label d-none d-lg-inline">reklama@grapart.pl</span>
             </span>
         </div>
-        <div class="col text-center">
+        <div class="col-lg-3 col-2 text-center">
             <span class="phone-link">
-                <i class="fas fa-phone-square fa-1x header-icon"></i>
+                <i class="fas fa-phone-square fa-3x header-icon d-lg-none"></i>
+                <i class="fas fa-phone-square fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
-                <span class="header-label">505 034 758</span>
+                <span class="header-label d-none d-lg-inline">505 034 758</span>
             </span>
         </div>
-        <div class="col text-center">
+        <div class="col-lg-3 col-2 text-center">
             <div>
-                <a href="{{ path('contact') }}">
-                    <i class="fas fa-map-marker-alt header-icon"></i>
+                <a href="{{ path('contact') }}" class="address-link">
+                    <i class="fas fa-map-marker-alt fa-3x header-icon d-lg-none"></i>
+                    <i class="fas fa-map-marker-alt fa-1x header-icon d-none d-lg-inline"></i>
                     &nbsp;
-                    <span class="header-label">Ząb, Szlak Papieski 220</span>
+                    <span class="header-label d-none d-lg-inline">Ząb, Szlak Papieski 220</span>
                 </a>
             </div>
         </div>
+    </div>
+    <div class="row header-row-blank">
+        <i class="fas fa-map-marker-alt fa-3x d-lg-none">qwe</i>
+        <i class="fas fa-map-marker-alt fa-1x d-none d-lg-inline"><div class="col-12"></div></i>
     </div>
     <div class="row banner-row">
         <a href="{{ path('index') }}">

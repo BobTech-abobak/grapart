@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block menu %}
+    {# Desktop View #}
     <ul class="menu">
     {% for category in menu %}
         {% if category.children is defined %}
@@ -31,6 +32,20 @@
         {% endif %}
     {% endfor %}
     </ul>
+
+    {# Mobile View #}
+    <div class="menu-mobile">
+        <a href="#" class="closebtn">&times;</a>
+        {% for category in menu %}
+            {% if category.children is defined %}
+                {% for item in category.children %}
+                    <a href="{{ path('category', {'url': item.url}) }}">{{  item.label|e }}</a>
+                {% endfor %}
+            {% else %}
+                <a href="{{ path('category', {'url': category.url}) }}">{{ category.label|e }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}
 
 {% block content %}

@@ -1,15 +1,6 @@
-.main-banner, .main-banner-1, .main-banner-2, .main-banner-3
+.main-banner
 {
     width: 100%;
-    margin-top: 39px;
-}
-
-.main-banner-1, .main-banner-2, .main-banner-3
-{
-    position: absolute;
-    left:0;
-    top:0;
-    display:none;
 }
 
 .banner-row a {
