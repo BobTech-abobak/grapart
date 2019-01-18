@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-    <title>{% block title '' %} Grapart.pl</title>
+    <title>
+        {% block title '' %}
+        {% if block('title') is not empty %} - {% endif %}
+        Studio Reklamy Grapart
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -12,11 +19,11 @@
 <div class="container-fluid main-container">
     <div class="row header-row">
         <div class="d-lg-none col-3" style="color:#FFFFFF">
-            <i class="fas fa-bars fa-3x header-icon menu-icon d-lg-none"></i>
+            <i class="fas fa-bars fa-2x header-icon menu-icon d-lg-none"></i>
         </div>
         <div class="col-lg-3 col-2 text-center">
             <a href="http://www.facebook.com" class="facebook-link">
-                <i class="fab fa-facebook-square fa-3x header-icon d-lg-none"></i>
+                <i class="fab fa-facebook-square fa-2x header-icon d-lg-none"></i>
                 <i class="fab fa-facebook-square fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
                 <span class="header-label d-none d-lg-inline">Studio Reklamy Grapart</span>
@@ -24,7 +31,7 @@
         </div>
         <div class="col-lg-3 col-2 text-center">
             <span class="mail-link" data-toggle="modal" data-target="#modalMessage" data-whatever="@mdo">
-                <i class="fas fa-envelope fa-3x header-icon d-lg-none"></i>
+                <i class="fas fa-envelope fa-2x header-icon d-lg-none"></i>
                 <i class="fas fa-envelope fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
                 <span class="header-label d-none d-lg-inline">reklama@grapart.pl</span>
@@ -32,7 +39,7 @@
         </div>
         <div class="col-lg-3 col-2 text-center">
             <span class="phone-link">
-                <i class="fas fa-phone-square fa-3x header-icon d-lg-none"></i>
+                <i class="fas fa-phone-square fa-2x header-icon d-lg-none"></i>
                 <i class="fas fa-phone-square fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
                 <span class="header-label d-none d-lg-inline">505 034 758</span>
@@ -41,7 +48,7 @@
         <div class="col-lg-3 col-2 text-center">
             <div>
                 <a href="{{ path('contact') }}" class="address-link">
-                    <i class="fas fa-map-marker-alt fa-3x header-icon d-lg-none"></i>
+                    <i class="fas fa-map-marker-alt fa-2x header-icon d-lg-none"></i>
                     <i class="fas fa-map-marker-alt fa-1x header-icon d-none d-lg-inline"></i>
                     &nbsp;
                     <span class="header-label d-none d-lg-inline">Ząb, Szlak Papieski 220</span>
@@ -52,7 +59,7 @@
     <div class="row header-row-blank invisible">
         <div class="col-lg-3 col-2 text-center">
             <a href="http://www.facebook.com" class="facebook-link">
-                <i class="fab fa-facebook-square fa-3x header-icon d-lg-none"></i>
+                <i class="fab fa-facebook-square fa-2x header-icon d-lg-none"></i>
                 <i class="fab fa-facebook-square fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
                 <span class="header-label d-none d-lg-inline">Studio Reklamy Grapart</span>
@@ -62,7 +69,7 @@
     <div class="row banner-row">
         <a href="{{ path('index') }}">
             <div class="col-12">
-                <img class="main-banner" src="{{ asset('build/images/main_banner.jpg') }}" />
+                <img class="main-banner" src="{{ asset('build/images/main_banner.jpg') }}" alt="Baner na stronie głównej Grapart" />
             </div>
         </a>
     </div>
@@ -70,6 +77,8 @@
     <div class="row menu-mobile">
         <div class="col-12">
             <a href="#" class="menu-mobile-close">&times;</a>
+            <a href="{{ path('index') }}">Strona główna</a>
+            <hr class="article-separator">
             {% for category in menu %}
                 {% if category.children is defined %}
                     {% for item in category.children %}
@@ -79,6 +88,8 @@
                     <a href="{{ path('category', {'url': category.url}) }}">{{ category.label|e }}</a>
                 {% endif %}
             {% endfor %}
+            <hr class="article-separator">
+            <a href="{{ path('contact') }}">Kontakt</a>
         </div>
     </div>
     <div class="row main-row">
