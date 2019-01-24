@@ -1,8 +1,11 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Mail;
 use App\Entity\Menu;
+use App\Form\ContactFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends AbstractController
@@ -13,8 +16,12 @@ class DefaultController extends AbstractController
     {
         $menu = new Menu();
 
+        $mail = new Mail();
+        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
+
         return $this->render('index.html.twig', [
-            'menu' => $menu->getMenu()
+            'menu' => $menu->getMenu(),
+            'contact_form' => $form->createView()
         ]);
     }
 
@@ -27,9 +34,14 @@ class DefaultController extends AbstractController
             return new Response("", 404);
         }
 
+        $mail = new Mail();
+        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
+
+
         return $this->render(self::DIRECTORY_NAME . DIRECTORY_SEPARATOR . $category['file'], [
             'menu' => $menu->getMenu(),
-            'category' => $category
+            'category' => $category,
+            'contact_form' => $form->createView()
         ]);
     }
 
@@ -37,9 +49,44 @@ class DefaultController extends AbstractController
     {
         $menu = new Menu();
 
+        $mail = new Mail();
+        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
+
+
         return $this->render('kontakt.html.twig', [
-            'menu' => $menu->getMenu()
+            'menu' => $menu->getMenu(),
+            'contact_form' => $form->createView()
         ]);
+    }
+
+    public function mail(Request $request, \Swift_Mailer $mailer)
+    {
+        $mail = new Mail();
+        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $task = $form->getData();
+            var_dump($task);
+
+            $message = (new \Swift_Message('Hello Email'))
+                ->setFrom('webmaster@grapart.pl')
+                ->setTo('abobak91@hotmail.com')
+                ->setBody(
+                    $this->renderView(
+                        'emails/contact.html.twig'
+                    ),
+                    'text/html'
+                )
+            ;
+            var_dump($mailer->send($message, $failures));
+            if (!$mailer->send($message, $failures))
+            {
+                echo "Failures:";
+                print_r($failures);
+            }
+            die;
+//            return $this->redirectToRoute('task_success');
+        }
     }
 
 
@@ -47,8 +94,13 @@ class DefaultController extends AbstractController
     {
         $menu = new Menu();
 
+        $mail = new Mail();
+        $form = $this->createForm(ContactFormType::class, $mail);
+
+
         return $this->render('mapa.html.twig', [
-            'menu' => $menu->getMenu()
+            'menu' => $menu->getMenu(),
+            'contact_form' => $form->createView()
         ]);
     }
 }

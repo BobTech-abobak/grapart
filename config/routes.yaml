@@ -10,6 +10,10 @@ sitemap:
     path: /mapa
     controller: App\Controller\DefaultController::sitemap
 
+send_mail:
+    path: /wiadomosc_kontaktowa
+    controller: App\Controller\DefaultController::mail
+
 category:
     path: /{url}
     controller: App\Controller\DefaultController::category
