@@ -1,6 +1,6 @@
 {
-  "build/app.css": "/build/app.c789246f.css",
-  "build/app.js": "/build/app.03457f14.js",
+  "build/app.css": "/build/app.04b41677.css",
+  "build/app.js": "/build/app.236fb7d0.js",
   "build/runtime.js": "/build/runtime.be789d2f.js",
   "build/fonts/fa-brands-400.ttf": "/build/fonts/fa-brands-400.50a544b5.ttf",
   "build/fonts/fa-brands-400.eot": "/build/fonts/fa-brands-400.7d43b9ae.eot",
@@ -12,7 +12,8 @@
   "build/fonts/fa-solid-900.eot": "/build/fonts/fa-solid-900.f72d546a.eot",
   "build/images/fa-brands-400.svg": "/build/images/fa-brands-400.fef43c1f.svg",
   "build/images/fa-solid-900.svg": "/build/images/fa-solid-900.27603739.svg",
-  "build/images/main_banner.jpg": "/build/images/main_banner.9df20fd2.jpg",
+  "build/images/main_banner_desktop.jpg": "/build/images/main_banner_desktop.546e6d78.jpg",
+  "build/images/main_banner_mobile.jpg": "/build/images/main_banner_mobile.142d7002.jpg",
   "build/images/mapa.png": "/build/images/mapa.5302353d.png",
   "build/images/strona-w-budowie.png": "/build/images/strona-w-budowie.7c4fcbb6.png"
 }

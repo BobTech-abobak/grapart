@@ -70,7 +70,6 @@ class DefaultController extends AbstractController
 
             $message = (new \Swift_Message('Hello Email'))
                 ->setFrom('webmaster@grapart.pl')
-                ->setTo('abobak91@hotmail.com')
                 ->setBody(
                     $this->renderView(
                         'emails/contact.html.twig'
@@ -78,6 +77,7 @@ class DefaultController extends AbstractController
                     'text/html'
                 )
             ;
+            var_dump('wysyłam maila');
             var_dump($mailer->send($message, $failures));
             if (!$mailer->send($message, $failures))
             {

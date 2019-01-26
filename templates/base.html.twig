@@ -68,8 +68,11 @@
     </div>
     <div class="row banner-row">
         <a href="{{ path('index') }}">
-            <div class="col-12">
-                <img class="main-banner" src="{{ asset('build/images/main_banner.jpg') }}" alt="Baner na stronie głównej Grapart" />
+            <div class="col-12 d-none d-lg-block">
+                <img class="main-banner" src="{{ asset('build/images/main_banner_desktop.jpg') }}" alt="Baner na stronie głównej Grapart" />
+            </div>
+            <div class="col-12 d-lg-none">
+                <img class="main-banner" src="{{ asset('build/images/main_banner_mobile.jpg') }}" alt="Baner na stronie głównej Grapart" />
             </div>
         </a>
     </div>
@@ -104,7 +107,7 @@
                 {{ menu_block|raw }}
             </div>
         {% endif %}
-        <div class="{% if menu_block is not empty %}col-lg-9 offset-lg-0{% else %}offset-lg-2 col-lg-8{% endif %} col-10 offset-1" id="main-content">
+        <div class="{% if menu_block is not empty %}col-lg-8 offset-lg-0{% else %}offset-lg-2 col-lg-8{% endif %} col-10 offset-1" id="main-content">
 
             {% block breadcrumb %}{% endblock %}
             {% block content %}{% endblock %}
