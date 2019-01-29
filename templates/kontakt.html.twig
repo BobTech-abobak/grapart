@@ -56,29 +56,10 @@
             <h6 class="contact-content">Studo Reklamy Grapart</h6>
         </div>
         <div class="col-lg-8 offset-lg-0 col-10 offset-1">
-            <img src="{{ asset('build/images/mapa.png') }}" alt="Mapa" class="img-fluid"/>
-            <br /><br /><br />
-            {# Desktop Contact Form #}
-            <div class="d-none d-lg-block">
-                <h3 class="contact-label">Formularz kontaktowy</h3>
-                <form>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" placeholder="Adres e-mail">
-                        <small id="emailHelp" class="form-text text-muted">Podaj swój adres e-mail, dzieki temu bęziemy mogli się z Tobą skontaktować</small>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" id="message" rows="3"  placeholder="Wiadomość"></textarea>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-default">Wyślij wiadomość</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <div id="map"></div>
         </div>
         {# Mobile View #}
-        <div class="col-lg-4 offset-lg-0 col-10 offset-1 d-block d-lg-none">
+        <div class="col-lg-4 offset-lg-0 col-10 offset-1 mt-3 d-block d-lg-none">
             <h3 class="contact-label">
                 <i class="fas fa-address-card"></i>
                 Nazwa firmy
@@ -118,26 +99,55 @@
             </h3>
             <h6 class="contact-content">Studo Reklamy Grapart</h6>
             <br /><br />
-            {# Mobile Contact Form #}
-            <div class="d-block d-lg-none">
-                <h3 class="contact-label">Formularz kontaktowy</h3>
-                <form>
-                    <div class="form-group">
-                        <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" placeholder="Adres e-mail">
-                        <small id="emailHelp" class="form-text text-muted">Podaj swój adres e-mail, dzieki temu bęziemy mogli się z Tobą skontaktować</small>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" id="message" rows="3"  placeholder="Wiadomość"></textarea>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <button type="submit" class="btn btn-default">Wyślij wiadomość</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
     <br /><br /><br />
 
+{% endblock %}
+
+{% block javascript %}
+    {% verbatim %}
+    <script>
+        var map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 49.3374358, lng: 19.9472512},
+                zoom: 15
+            });
+
+            var request = {
+                placeId: 'ChIJWwYq4THtFUcRwio5vLnJpgU',
+                fields: ['name', 'formatted_address', 'geometry', 'icon']
+            };
+
+            var infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
+
+            service.getDetails(request, function(place, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                    });
+                    infowindow.setContent('<div class="map_modal">' +
+                        '<h4>' + place.name +
+                        '</h4>' +
+                        '<h6>' + place.formatted_address +
+                        '</h6>' +
+                        '<h7><a href="https://www.google.pl/maps/place/Studio+Reklamy+GRAPART/@49.336344,19.9479114,19z/data=!4m12!1m6!3m5!1s0x4715ed31e12a065b:0x5a6c9b9bc392ac2!2sStudio+Reklamy+GRAPART!8m2!3d49.3364323!4d19.9484452!3m4!1s0x4715ed31e12a065b:0x5a6c9b9bc392ac2!8m2!3d49.3364323!4d19.9484452" target="_blank" />Zobacz szczegóły na Mapach Google</a>' +
+                        '</h7>' +
+                        '</div>');
+
+                    google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map, this);
+                    });
+                    infowindow.open(map, marker);
+                }
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6l6a6Ul8dt2oq2DRGo4cTsHC1maxoszc&libraries=places&callback=initMap"
+            async defer></script>
+    {% endverbatim %}
 {% endblock %}

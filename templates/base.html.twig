@@ -22,38 +22,36 @@
             <i class="fas fa-bars fa-2x header-icon menu-icon d-lg-none"></i>
         </div>
         <div class="col-lg-3 col-2 text-center">
-            <a href="http://www.facebook.com" class="facebook-link">
+            <a href="http://www.facebook.com" target="_blank">
                 <i class="fab fa-facebook-square fa-2x header-icon d-lg-none"></i>
                 <i class="fab fa-facebook-square fa-1x header-icon d-none d-lg-inline"></i>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp
                 <span class="header-label d-none d-lg-inline">Studio Reklamy Grapart</span>
             </a>
         </div>
         <div class="col-lg-3 col-2 text-center">
-            <span class="mail-link" data-toggle="modal" data-target="#modalMessage" data-whatever="@mdo">
+            <a class="mail-link" data-toggle="modal" data-target="#modalMessage" data-whatever="@mdo">
                 <i class="fas fa-envelope fa-2x header-icon d-lg-none"></i>
                 <i class="fas fa-envelope fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
                 <span class="header-label d-none d-lg-inline">reklama@grapart.pl</span>
-            </span>
+            </a>
         </div>
         <div class="col-lg-3 col-2 text-center">
-            <span class="phone-link">
+            <a href="tel: 505034758">
                 <i class="fas fa-phone-square fa-2x header-icon d-lg-none"></i>
                 <i class="fas fa-phone-square fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
-                <span class="header-label d-none d-lg-inline">505 034 758</span>
-            </span>
+                <span class="header-label d-none d-lg-inline" href="tel: 505034758">505 034 758</span>
+            </a>
         </div>
         <div class="col-lg-3 col-2 text-center">
-            <div>
-                <a href="{{ path('contact') }}" class="address-link">
-                    <i class="fas fa-map-marker-alt fa-2x header-icon d-lg-none"></i>
-                    <i class="fas fa-map-marker-alt fa-1x header-icon d-none d-lg-inline"></i>
-                    &nbsp;
-                    <span class="header-label d-none d-lg-inline">Ząb, Szlak Papieski 220</span>
-                </a>
-            </div>
+            <a href="{{ path('contact') }}">
+                <i class="fas fa-map-marker-alt fa-2x header-icon d-lg-none"></i>
+                <i class="fas fa-map-marker-alt fa-1x header-icon d-none d-lg-inline"></i>
+                &nbsp;
+                <span href="{{ path('contact') }}"  class="header-label d-none d-lg-inline">Ząb, Szlak Papieski 220</span>
+            </a>
         </div>
     </div>
     <div class="row header-row-blank invisible">
@@ -124,9 +122,9 @@
         </div>
         <div class="col-sm-6 p-4 col-8 text-right">
             <span class="author">&copy; Copyright {{ "now"|date("Y") }} by grapart.pl</span>
-            &nbsp;|&nbsp;
-            <a href="{{ path('sitemap') }}" class="d-none d-sm-inline">Mapa Strony</a>
-            <a href="{{ path('sitemap') }}" class="d-inline d-sm-none">Mapa</a>
+            <span class="d-none d-md-inline">
+                &nbsp;|&nbsp;<a href="{{ path('sitemap') }}">Mapa Strony</a>
+            </span>
         </div>
     </div>
 
@@ -171,5 +169,6 @@
 
 </div>
 {{ encore_entry_script_tags('app') }}
+{% block javascript '' %}
 </body>
 </html>

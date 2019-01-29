@@ -13,15 +13,10 @@
     z-index: 2;
 }
 
-.header-row [class$="-link"]:hover
+.header-row a:hover
 {
     text-decoration: none;
     cursor: pointer;
-    text-shadow: 0px 0px 1px #AAAAAA;
-}
-
-.header-row a:hover {
-    text-decoration: none;
 }
 
 .header-icon
@@ -29,7 +24,17 @@
     color: #dd2a1b
 }
 
+.header-icon:hover
+{
+    color: #ec3627
+}
+
 .header-label
+{
+    color: #DDDDDD
+}
+
+.header-label:hover
 {
     color: #FFFFFF
 }
