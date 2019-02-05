@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <title>
-        {% block title '' %}
-        {% if block('title') is not empty %} - {% endif %}
-        Studio Reklamy Grapart
-    </title>
+    <title>{% block title '' %}{% if block('title') is not empty %} - {% endif %}Studio Reklamy Grapart</title>
+    <meta name="description" content="{% block description 'Grapart zajmujemy się kompleksową obsługą reklamową oraz poligraficzną firm, instytucji oraz klientów indywidualnych.' %}">
+    <meta name="keywords" content="{% block keywords 'Studio Reklamy, Studio Reklamy Podhale, Grapart, Reklama Podhale, Reklama Ząb, Ząb, Reklama Ząb, Studio Reklamy Ząb' %}">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

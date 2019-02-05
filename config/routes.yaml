@@ -14,6 +14,10 @@ send_mail:
     path: /wiadomosc_kontaktowa
     controller: App\Controller\DefaultController::mail
 
+sitemap_xml:
+    path: /sitemap.xml
+    controller: App\Controller\SitemapController::xml
+
 category:
     path: /{url}
     controller: App\Controller\DefaultController::category
