@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Entity\Mail;
 use App\Entity\Menu;
 use App\Form\ContactFormType;
+use App\Repository\RealizationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,11 +37,12 @@ class DefaultController extends AbstractController
 
         $mail = new Mail();
         $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
-
+        $realizations = new RealizationRepository();
 
         return $this->render(self::DIRECTORY_NAME . DIRECTORY_SEPARATOR . $category['file'], [
             'menu' => $menu->getMenu(),
             'category' => $category,
+            'realizations' => $realizations->findByUrl($url),
             'contact_form' => $form->createView()
         ]);
     }

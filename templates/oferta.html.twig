@@ -43,32 +43,19 @@
 {% endblock %}
 
 {% block content %}
-
-    <h3 class="main-content-label">O nas</h3>
-    <hr class="article-separator">
-    <p class="main-content-paragraph">
-        Zajmujemy się kompleksową obsługą reklamową oraz poligraficzną firm, instytucji oraz klientów indywidualnych.
-        Doskonale wiemy, że tylko oferując pełen wachlarz rozwiązań reklamowych jesteśmy w stanie zaspokoić indywidualne
-        potrzeby naszych kontrahentów.<br/>
-    </p>
-    <br/><br/><br/>
-    <h3 class="main-content-label">Dlaczego my?</h3>
-    <hr class="article-separator">
-    <p class="main-content-paragraph">
-        Po 1. korzystamy z profesjonalnych urządzeń oraz współpracujemy z najlepszymi partnerami co pozwala nam oferować
-        wysoką jakość produktów i konkurencyjne ceny<br/>
-        <br/>
-        Po 2. doskonale zdajemy sobie sprawę jak cenny jest czas naszych klientów, dlatego działamy tak, aby zabierać go
-        jak najmniej<br/>
-        <br/>
-        Po 3. do każdego klienta podchodzimy indywidualnie i z pełnym zaangażowaniem<br/>
-        <br/>
-        Po 4. zawsze dotrzymujemy terminów, działamy szybko, sprawnie i przede wszystkim bardzo skutecznie<br/>
-        <br/>
-        Nasz cel to zapewnić naszym klientom kompleksową obsługę reklamową w najbardziej korzystnym terminie, jakości i
-        cenie.<br/>
-        <br/>
-        Zapraszamy do zapoznania się z naszą ofertą.
-    </p>
-
+    {% block content_offer %}{% endblock %}
+    {% if realizations is not empty %}
+        <br />
+        <hr class="article-separator">
+        <h6 class="main-content-label">Przykładowe realizacje</h6>
+        <div class="row">
+            {% for realization in realizations %}
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <a href="{{ asset('build/images/'~realization.image) }}" data-toggle="lightbox" data-title="{{ realization.title }}">
+                        <img class="img-fluid img-thumbnail" src="{{ asset('build/images/'~realization.image) }}" alt="{{ realization.title }}" />
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

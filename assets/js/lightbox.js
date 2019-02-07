@@ -6,5 +6,3 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
         alwaysShowClose: true
     });
 });
-
-require('../img/realizacje_oklejanie_witryn_pojazdow_1.jpg');
