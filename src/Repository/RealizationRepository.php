@@ -22,6 +22,48 @@ class RealizationRepository
             'categories' => [
                 'oklejanie_witryn_pojazdow', 'folia_ploterowa'
             ]
+        ],
+        [
+            'title' => 'Kaseton firmy Grapart',
+            'image' => 'realizacja_3.jpg',
+            'categories' => [
+                'kaseton_led'
+            ]
+        ],
+        [
+            'title' => 'Wykonanie tabliczki adresowej 3D - Hotel Redyk***',
+            'image' => 'realizacja_4.jpg',
+            'categories' => [
+                'szyld'
+            ]
+        ],
+        [
+            'title' => 'Przykładowe realizacje koszulek',
+            'image' => 'realizacja_5.jpg',
+            'categories' => [
+                'koszulki_z_nadrukiem'
+            ]
+        ],
+        [
+            'title' => 'Przykładowa realizacja koszulki',
+            'image' => 'realizacja_6.jpg',
+            'categories' => [
+                'koszulki_z_nadrukiem'
+            ]
+        ],
+        [
+            'title' => 'Karnet na wyciąg WOJJAN',
+            'image' => 'realizacja_7.jpg',
+            'categories' => [
+                'poligrafia'
+            ]
+        ],
+        [
+            'title' => 'Litery 3D na przykładzie firmy Grapart',
+            'image' => 'realizacja_8.jpg',
+            'categories' => [
+                'litery_3d'
+            ]
         ]
     );
 

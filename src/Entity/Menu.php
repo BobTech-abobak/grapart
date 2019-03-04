@@ -27,7 +27,7 @@ class Menu
             )
         ),
         array(
-            'label' => 'Folie',
+            'label' => 'Naklejki',
             'children' => array(
                 array (
                     'label' => 'Folia zwykła (monomeryczna)',
@@ -67,9 +67,9 @@ class Menu
             'file' => 'magnes.html.twig'
         ),
         array (
-            'label' => 'Rollup',
-            'url' => 'rollup',
-            'file' => 'rollup.html.twig'
+            'label' => 'Rollup, potykacz',
+            'url' => 'rollup_potykacz',
+            'file' => 'rollup_potykacz.html.twig'
         ),
         array (
             'label' => 'Szyld',
@@ -85,11 +85,6 @@ class Menu
             'label' => 'Litery 3D',
             'url' => 'litery_3d',
             'file' => 'litery_3d.html.twig'
-        ),
-        array (
-            'label' => 'Obróbka CNC, Cięcie laserem',
-            'url' => 'obrobka_cnc_ciecie_laserem',
-            'file' => 'obrobka_cnc_ciecie_laserem.html.twig'
         ),
         array (
             'label' => 'Puchary, medale, dyplomy',
