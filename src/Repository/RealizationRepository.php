@@ -24,42 +24,42 @@ class RealizationRepository
             ]
         ],
         [
-            'title' => 'Kaseton firmy Grapart',
+            'title' => 'Kaseton frezowany dibond',
             'image' => 'realizacja_3.jpg',
             'categories' => [
                 'kaseton_led'
             ]
         ],
         [
-            'title' => 'Wykonanie tabliczki adresowej 3D - Hotel Redyk***',
+            'title' => 'Tabliczka 3D dibond frezowany',
             'image' => 'realizacja_4.jpg',
             'categories' => [
                 'szyld'
             ]
         ],
         [
-            'title' => 'Przykładowe realizacje koszulek',
+            'title' => 'Nadruk metodą termotransferu',
             'image' => 'realizacja_5.jpg',
             'categories' => [
                 'koszulki_z_nadrukiem'
             ]
         ],
         [
-            'title' => 'Przykładowa realizacja koszulki',
+            'title' => 'Nadruk metodą termotransferu',
             'image' => 'realizacja_6.jpg',
             'categories' => [
                 'koszulki_z_nadrukiem'
             ]
         ],
         [
-            'title' => 'Karnet na wyciąg WOJJAN',
+            'title' => 'Karnety Wojjan',
             'image' => 'realizacja_7.jpg',
             'categories' => [
                 'poligrafia'
             ]
         ],
         [
-            'title' => 'Litery 3D na przykładzie firmy Grapart',
+            'title' => 'Logo ze styroduru',
             'image' => 'realizacja_8.jpg',
             'categories' => [
                 'litery_3d'
