@@ -3,10 +3,19 @@
     "app": {
       "js": [
         "/build/runtime.be789d2f.js",
-        "/build/app.236fb7d0.js"
+        "/build/app.a0680c02.js"
       ],
       "css": [
-        "/build/app.04b41677.css"
+        "/build/app.6d9282ba.css"
+      ]
+    },
+    "lightbox": {
+      "js": [
+        "/build/runtime.be789d2f.js",
+        "/build/lightbox.62362536.js"
+      ],
+      "css": [
+        "/build/lightbox.10a823da.css"
       ]
     }
   }

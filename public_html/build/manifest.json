@@ -1,6 +1,8 @@
 {
-  "build/app.css": "/build/app.04b41677.css",
-  "build/app.js": "/build/app.236fb7d0.js",
+  "build/app.css": "/build/app.6d9282ba.css",
+  "build/app.js": "/build/app.a0680c02.js",
+  "build/lightbox.css": "/build/lightbox.10a823da.css",
+  "build/lightbox.js": "/build/lightbox.62362536.js",
   "build/runtime.js": "/build/runtime.be789d2f.js",
   "build/fonts/fa-brands-400.ttf": "/build/fonts/fa-brands-400.50a544b5.ttf",
   "build/fonts/fa-brands-400.eot": "/build/fonts/fa-brands-400.7d43b9ae.eot",
@@ -12,8 +14,13 @@
   "build/fonts/fa-solid-900.eot": "/build/fonts/fa-solid-900.f72d546a.eot",
   "build/images/fa-brands-400.svg": "/build/images/fa-brands-400.fef43c1f.svg",
   "build/images/fa-solid-900.svg": "/build/images/fa-solid-900.27603739.svg",
-  "build/images/main_banner_desktop.jpg": "/build/images/main_banner_desktop.546e6d78.jpg",
-  "build/images/main_banner_mobile.jpg": "/build/images/main_banner_mobile.142d7002.jpg",
-  "build/images/mapa.png": "/build/images/mapa.5302353d.png",
-  "build/images/strona-w-budowie.png": "/build/images/strona-w-budowie.7c4fcbb6.png"
+  "build/images/main_banner.jpg": "/build/images/main_banner.e246447a.jpg",
+  "build/images/realizacja_1.jpg": "/build/images/realizacja_1.849ab9cf.jpg",
+  "build/images/realizacja_2.jpg": "/build/images/realizacja_2.83a47467.jpg",
+  "build/images/realizacja_3.jpg": "/build/images/realizacja_3.2605bd70.jpg",
+  "build/images/realizacja_4.jpg": "/build/images/realizacja_4.377072df.jpg",
+  "build/images/realizacja_5.jpg": "/build/images/realizacja_5.5b074af7.jpg",
+  "build/images/realizacja_6.jpg": "/build/images/realizacja_6.ee8ad99e.jpg",
+  "build/images/realizacja_7.jpg": "/build/images/realizacja_7.e4d457d5.jpg",
+  "build/images/realizacja_8.jpg": "/build/images/realizacja_8.1c0d0d69.jpg"
 }
