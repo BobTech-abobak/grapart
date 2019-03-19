@@ -64,6 +64,48 @@ class RealizationRepository
             'categories' => [
                 'litery_3d'
             ]
+        ],
+        [
+            'title' => 'Dibond oklejony folią z laminatem',
+            'image' => 'realizacja_9.jpg',
+            'categories' => [
+                'szyld'
+            ]
+        ],
+        [
+            'title' => 'Dibond oklejony folią z laminatem',
+            'image' => 'realizacja_10.jpg',
+            'categories' => [
+                'szyld'
+            ]
+        ],
+        [
+            'title' => 'Dibond oklejony folią z laminatem',
+            'image' => 'realizacja_11.jpg',
+            'categories' => [
+                'szyld'
+            ]
+        ],
+        [
+            'title' => 'Nadruk metodą termotransferu',
+            'image' => 'realizacja_12.jpg',
+            'categories' => [
+                'koszulki_z_nadrukiem'
+            ]
+        ],
+        [
+            'title' => 'Naklejki wycinane ploterowo',
+            'image' => 'realizacja_13.jpg',
+            'categories' => [
+                'folia_zwykla'
+            ]
+        ],
+        [
+            'title' => 'Naklejki wycinane ploterowo',
+            'image' => 'realizacja_14.jpg',
+            'categories' => [
+                'folia_odblaskowa'
+            ]
         ]
     );
 
