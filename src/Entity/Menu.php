@@ -133,9 +133,11 @@ class Menu
         foreach ($mainCategory as $category) {
             if (array_key_exists('url', $category) && $category['url'] == $url) {
                 $foundCategory = $category;
+                break;
             } elseif (array_key_exists('children', $category) && is_array($category['children'])) {
-                if (($result = $this->getCategoryByUrl($url, $category['children'])) !== null) {
+                if (($result = $this->getCategoryByUrl($url, $category['children'])) !== false) {
                     $foundCategory = $result;
+                    break;
                 }
             }
         }
