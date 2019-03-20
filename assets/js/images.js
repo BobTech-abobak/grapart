@@ -10,7 +10,6 @@ require('../img/realizacja_7.jpg');
 require('../img/realizacja_8.jpg');
 require('../img/realizacja_9.jpg');
 require('../img/realizacja_10.jpg');
-require('../img/realizacja_11.jpg');
 require('../img/realizacja_12.jpg');
 require('../img/realizacja_13.jpg');
 require('../img/realizacja_14.jpg');

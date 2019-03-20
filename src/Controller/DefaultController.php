@@ -29,11 +29,7 @@ class DefaultController extends AbstractController
     public function category($url)
     {
         $menu = new Menu();
-        try {
-            $category = $menu->getCategoryByUrl($url);
-        } catch (\Exception $exception) {
-            return new Response("", 404);
-        }
+        $category = $menu->getCategoryByUrl($url);
 
         $mail = new Mail();
         $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);

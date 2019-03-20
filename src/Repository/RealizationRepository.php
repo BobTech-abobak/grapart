@@ -80,13 +80,6 @@ class RealizationRepository
             ]
         ],
         [
-            'title' => 'Dibond oklejony folią z laminatem',
-            'image' => 'realizacja_11.jpg',
-            'categories' => [
-                'szyld'
-            ]
-        ],
-        [
             'title' => 'Nadruk metodą termotransferu',
             'image' => 'realizacja_12.jpg',
             'categories' => [

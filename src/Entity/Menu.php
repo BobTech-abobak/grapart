@@ -1,7 +1,7 @@
 <?php
 namespace App\Entity;
 
-use Symfony\Component\Config\Definition\Exception\Exception;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Menu
 {
@@ -118,22 +118,30 @@ class Menu
         return $this->_menuStructure;
     }
 
+    /**
+     * @param string $url
+     * @param null|array $mainCategory
+     * @return array
+     */
     public function getCategoryByUrl($url, $mainCategory = null)
     {
+        $foundCategory = false;
+        $rootNode = is_null($mainCategory);
         if ($mainCategory == null) {
             $mainCategory = $this->_menuStructure;
         }
         foreach ($mainCategory as $category) {
             if (array_key_exists('url', $category) && $category['url'] == $url) {
-                return $category;
+                $foundCategory = $category;
             } elseif (array_key_exists('children', $category) && is_array($category['children'])) {
                 if (($result = $this->getCategoryByUrl($url, $category['children'])) !== null) {
-                    return $result;
+                    $foundCategory = $result;
                 }
             }
         }
-        if ($mainCategory == null) {
-            throw new Exception('Category not found!');
+        if ($rootNode && !$foundCategory) {
+            throw new NotFoundHttpException('Category not found!');
         }
+        return $foundCategory;
     }
 }

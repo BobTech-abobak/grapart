@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>{% block title '' %}{% if block('title') is not empty %} - {% endif %}Studio Reklamy Grapart</title>
+    <meta name="description" content="{% block description 'Grapart zajmujemy się kompleksową obsługą reklamową oraz poligraficzną firm, instytucji oraz klientów indywidualnych.' %}">
+    <meta name="keywords" content="{% block keywords 'Studio Reklamy, Studio Reklamy Podhale, Grapart, Reklama Podhale, Reklama Ząb, Ząb, Reklama Ząb, Studio Reklamy Ząb' %}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('lightbox') }}
+</head>
+<body>
+<div class="container-fluid main-container">
+    <div class="row header-row">
+        <div class="d-lg-none col-3" style="color:#FFFFFF">
+            <i class="fas fa-bars fa-2x header-icon menu-icon d-lg-none"></i>
+        </div>
+        <div class="col-lg-3 col-2 text-center">
+            <a href="https://www.facebook.com/studiograpart/" target="_blank">
+                <i class="fab fa-facebook-square fa-2x header-icon d-lg-none"></i>
+                <i class="fab fa-facebook-square fa-1x header-icon d-none d-lg-inline"></i>
+                &nbsp;&nbsp
+                <span class="header-label d-none d-lg-inline">Studio Reklamy Grapart</span>
+            </a>
+        </div>
+        <div class="col-lg-3 col-2 text-center">
+            <a class="mail-link" href="mailto:reklama@grapart.pl">
+                <i class="fas fa-envelope fa-2x header-icon d-lg-none"></i>
+                <i class="fas fa-envelope fa-1x header-icon d-none d-lg-inline"></i>
+                &nbsp;&nbsp;
+                <span class="header-label d-none d-lg-inline">reklama@grapart.pl</span>
+            </a>
+        </div>
+        <div class="col-lg-3 col-2 text-center">
+            <a href="tel: 505034758">
+                <i class="fas fa-phone-square fa-2x header-icon d-lg-none"></i>
+                <i class="fas fa-phone-square fa-1x header-icon d-none d-lg-inline"></i>
+                &nbsp;&nbsp;
+                <span class="header-label d-none d-lg-inline" href="tel: 505034758">505 034 758</span>
+            </a>
+        </div>
+        <div class="col-lg-3 col-2 text-center">
+            <a href="{{ path('contact') }}">
+                <i class="fas fa-map-marker-alt fa-2x header-icon d-lg-none"></i>
+                <i class="fas fa-map-marker-alt fa-1x header-icon d-none d-lg-inline"></i>
+                &nbsp;
+                <span href="{{ path('contact') }}"  class="header-label d-none d-lg-inline">Ząb, Szlak Papieski 220</span>
+            </a>
+        </div>
+    </div>
+    <div class="row header-row-blank invisible">
+        <div class="col-lg-3 col-2 text-center">
+            <a href="http://www.facebook.com" class="facebook-link">
+                <i class="fab fa-facebook-square fa-2x header-icon d-lg-none"></i>
+                <i class="fab fa-facebook-square fa-1x header-icon d-none d-lg-inline"></i>
+                &nbsp;&nbsp;
+                <span class="header-label d-none d-lg-inline">Studio Reklamy Grapart</span>
+            </a>
+        </div>
+    </div>
+    <div class="row banner-row">
+        <a href="{{ path('index') }}">
+            <div class="col-12">
+                <img class="main-banner" src="{{ asset('build/images/main_banner.jpg') }}" alt="Baner na stronie głównej Grapart" />
+            </div>
+        </a>
+    </div>
+    <div class="row main-row">
+        {% if block('menu_block') is defined %}
+            {% set menu_block = block('menu_block') %}
+        {% else %}
+            {% set menu_block = '' %}
+        {% endif %}
+        {# Menu Desktop #}
+        {% if menu_block is not empty %}
+            <div class="col-lg-3 d-none d-lg-block">
+                {{ menu_block|raw }}
+            </div>
+        {% endif %}
+        <div class="col-10 offset-1" id="main-content">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Ślepa uliczka</li>
+                </ol>
+            </nav>
+
+            <h3 class="main-content-label">Błąd 404</h3>
+            <hr class="article-separator">
+            <p class="main-content-paragraph"><h5>
+                Podana strona nie została odnaleziona.<br />
+                Wróć na <a style="color: #dd2a1b" href="{{ path('index') }}">stronę główną</a> lub sprawdź <a style="color: #dd2a1b" href="{{ path('sitemap') }}">mapę strony</a> w celu odnalezienia szukanych treści.
+            </h5></p>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row footer">
+        <div class="text-left p-4 col-sm-6 col-4">
+            <a href="{{ path('contact') }}">
+                <i class="fas fa-home fa-1x"></i>
+                &nbsp;
+                Kontakt
+            </a>
+        </div>
+        <div class="col-sm-6 p-4 col-8 text-right">
+            <span class="author">&copy; Copyright {{ "now"|date("Y") }} by grapart.pl</span>
+            <span class="d-none d-md-inline">
+                &nbsp;|&nbsp;<a href="{{ path('sitemap') }}">Mapa Strony</a>
+            </span>
+        </div>
+    </div>
+
+</div>
+{{ encore_entry_script_tags('app') }}
+{{ encore_entry_script_tags('lightbox') }}
+{% block javascript '' %}
+</body>
+</html>
