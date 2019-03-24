@@ -1,11 +1,18 @@
-.main-banner
-{
-    width: 100%;
-}
-
 .banner-row a {
     width: 100%;
 }
 .banner-row div {
     padding: 0;
+}
+
+.main-banner-1
+{
+    width: 100%;
+}
+
+.main-banner-2, .main-banner-3, .main-banner-4 {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    display:none;
 }

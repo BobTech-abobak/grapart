@@ -28,4 +28,15 @@ $(document).ready(function(){
     $(".menu-mobile").on("click", function() {
         $(".menu-mobile").css('width', '0px');
     });
+
+    // Banner animation
+    setTimeout(function(){
+        $(".main-banner-2").fadeIn();
+    }, 1000);
+    setTimeout(function(){
+        $(".main-banner-3").fadeIn();
+    }, 2000);
+    setTimeout(function(){
+        $(".main-banner-4").fadeIn();
+    }, 3000);
 });
