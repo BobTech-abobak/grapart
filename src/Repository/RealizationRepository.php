@@ -80,6 +80,13 @@ class RealizationRepository
             ]
         ],
         [
+            'title' => 'Litery wycinane ploterowo',
+            'image' => 'realizacja_11.jpg',
+            'categories' => [
+                'folia_ploterowa'
+            ]
+        ],
+        [
             'title' => 'Nadruk metodą termotransferu',
             'image' => 'realizacja_12.jpg',
             'categories' => [
@@ -98,6 +105,55 @@ class RealizationRepository
             'image' => 'realizacja_14.jpg',
             'categories' => [
                 'folia_odblaskowa'
+            ]
+        ],
+        [
+            'title' => 'Roll-up',
+            'image' => 'realizacja_15.jpg',
+            'categories' => [
+                'rollup_potykacz'
+            ]
+        ],
+        [
+            'title' => 'Naklejki wycinane ploterowo',
+            'image' => 'realizacja_16.jpg',
+            'categories' => [
+                'folia_zwykla'
+            ]
+        ],
+        [
+            'title' => 'Oklejanie samochodu',
+            'image' => 'realizacja_17.jpg',
+            'categories' => [
+                'folia_owv'
+            ]
+        ],
+        [
+            'title' => 'Oklejanie samochodu',
+            'image' => 'realizacja_18.jpg',
+            'categories' => [
+                'folia_owv', 'oklejanie_witryn_pojazdow'
+            ]
+        ],
+        [
+            'title' => 'Litery wycinane ploterowo',
+            'image' => 'realizacja_19.jpg',
+            'categories' => [
+                'folia_ploterowa'
+            ]
+        ],
+        [
+            'title' => 'Oklejanie samochodu STYRCZULA',
+            'image' => 'realizacja_20.jpg',
+            'categories' => [
+                'oklejanie_witryn_pojazdow'
+            ]
+        ],
+        [
+            'title' => 'Oklejanie samochodu ERPEL',
+            'image' => 'realizacja_21.jpg',
+            'categories' => [
+                'oklejanie_witryn_pojazdow'
             ]
         ]
     );
