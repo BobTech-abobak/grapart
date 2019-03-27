@@ -65,8 +65,17 @@
     </div>
     <div class="row banner-row">
         <a href="{{ path('index') }}">
-            <div class="col-12">
-                <img class="main-banner" src="{{ asset('build/images/main_banner.jpg') }}" alt="Baner na stronie głównej Grapart" />
+            <div class="col-12 d-lg-none">
+                <img class="main-banner-1" src="{{ asset('build/images/banner_mobile_1.jpg') }}" alt="Baner na stronie głównej Grapart" />
+                <img class="main-banner-2" src="{{ asset('build/images/banner_mobile_2.png') }}" alt="Baner na stronie głównej Grapart" />
+                <img class="main-banner-3" src="{{ asset('build/images/banner_mobile_3.png') }}" alt="Baner na stronie głównej Grapart" />
+                <img class="main-banner-4" src="{{ asset('build/images/banner_mobile_4.jpg') }}" alt="Baner na stronie głównej Grapart" />
+            </div>
+            <div class="col-12 d-none d-lg-block">
+                <img class="main-banner-1" src="{{ asset('build/images/banner_desktop_1.jpg') }}" alt="Baner na stronie głównej Grapart" />
+                <img class="main-banner-2" src="{{ asset('build/images/banner_desktop_2.png') }}" alt="Baner na stronie głównej Grapart" />
+                <img class="main-banner-3" src="{{ asset('build/images/banner_desktop_3.png') }}" alt="Baner na stronie głównej Grapart" />
+                <img class="main-banner-4" src="{{ asset('build/images/banner_desktop_4.jpg') }}" alt="Baner na stronie głównej Grapart" />
             </div>
         </a>
     </div>
@@ -86,7 +95,8 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Ślepa uliczka</li>
+                    <li class="breadcrumb-item"><a href="{{ path('index') }}">Strona główna</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Nieistniejąca strona</li>
                 </ol>
             </nav>
 
