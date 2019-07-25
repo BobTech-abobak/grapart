@@ -6,157 +6,37 @@ use App\Entity\Realization;
 class RealizationRepository
 {
     /**
-     * @var array $data Data structure
+     * @return array
      */
-    protected $data = array(
-        [
-            'title' => 'Oklejanie samochodu SZEJK-BUD',
-            'image' => 'realizacja_1.jpg',
-            'categories' => [
-                'oklejanie_witryn_pojazdow'
-            ]
-        ],
-        [
-            'title' => 'Mobilne usługi fryzjerskie Nesti - projekt + wykonanie',
-            'image' => 'realizacja_2.jpg',
-            'categories' => [
-                'oklejanie_witryn_pojazdow', 'folia_ploterowa'
-            ]
-        ],
-        [
-            'title' => 'Kaseton frezowany dibond',
-            'image' => 'realizacja_3.jpg',
-            'categories' => [
-                'kaseton_led'
-            ]
-        ],
-        [
-            'title' => 'Tabliczka 3D dibond frezowany',
-            'image' => 'realizacja_4.jpg',
-            'categories' => [
-                'szyld'
-            ]
-        ],
-        [
-            'title' => 'Nadruk metodą termotransferu',
-            'image' => 'realizacja_5.jpg',
-            'categories' => [
-                'koszulki_z_nadrukiem'
-            ]
-        ],
-        [
-            'title' => 'Nadruk metodą termotransferu',
-            'image' => 'realizacja_6.jpg',
-            'categories' => [
-                'koszulki_z_nadrukiem'
-            ]
-        ],
-        [
-            'title' => 'Karnety Wojjan',
-            'image' => 'realizacja_7.jpg',
-            'categories' => [
-                'poligrafia'
-            ]
-        ],
-        [
-            'title' => 'Logo ze styroduru',
-            'image' => 'realizacja_8.jpg',
-            'categories' => [
-                'litery_3d'
-            ]
-        ],
-        [
-            'title' => 'Dibond oklejony folią z laminatem',
-            'image' => 'realizacja_9.jpg',
-            'categories' => [
-                'szyld'
-            ]
-        ],
-        [
-            'title' => 'Dibond oklejony folią z laminatem',
-            'image' => 'realizacja_10.jpg',
-            'categories' => [
-                'szyld'
-            ]
-        ],
-        [
-            'title' => 'Litery wycinane ploterowo',
-            'image' => 'realizacja_11.jpg',
-            'categories' => [
-                'folia_ploterowa'
-            ]
-        ],
-        [
-            'title' => 'Nadruk metodą termotransferu',
-            'image' => 'realizacja_12.jpg',
-            'categories' => [
-                'koszulki_z_nadrukiem'
-            ]
-        ],
-        [
-            'title' => 'Naklejki wycinane ploterowo',
-            'image' => 'realizacja_13.jpg',
-            'categories' => [
-                'folia_zwykla'
-            ]
-        ],
-        [
-            'title' => 'Naklejki wycinane ploterowo',
-            'image' => 'realizacja_14.jpg',
-            'categories' => [
-                'folia_odblaskowa'
-            ]
-        ],
-        [
-            'title' => 'Roll-up',
-            'image' => 'realizacja_15.jpg',
-            'categories' => [
-                'rollup_potykacz'
-            ]
-        ],
-        [
-            'title' => 'Naklejki wycinane ploterowo',
-            'image' => 'realizacja_16.jpg',
-            'categories' => [
-                'folia_zwykla'
-            ]
-        ],
-        [
-            'title' => 'Oklejanie samochodu',
-            'image' => 'realizacja_17.jpg',
-            'categories' => [
-                'folia_owv'
-            ]
-        ],
-        [
-            'title' => 'Oklejanie samochodu',
-            'image' => 'realizacja_18.jpg',
-            'categories' => [
-                'folia_owv', 'oklejanie_witryn_pojazdow'
-            ]
-        ],
-        [
-            'title' => 'Litery wycinane ploterowo',
-            'image' => 'realizacja_19.jpg',
-            'categories' => [
-                'folia_ploterowa'
-            ]
-        ],
-        [
-            'title' => 'Oklejanie samochodu STYRCZULA',
-            'image' => 'realizacja_20.jpg',
-            'categories' => [
-                'oklejanie_witryn_pojazdow'
-            ]
-        ],
-        [
-            'title' => 'Oklejanie samochodu ERPEL',
-            'image' => 'realizacja_21.jpg',
-            'categories' => [
-                'oklejanie_witryn_pojazdow'
-            ]
-        ]
-    );
+    public function findAll()
+    {
+        $dir = dirname(__DIR__);
+        $file = 'Files/realizations.csv';
+        $csv = array_map('str_getcsv', file($dir . DIRECTORY_SEPARATOR . $file));
+        $realizations = array();
+        foreach ($csv as $realization) {
+            $newRealization = new Realization();
+            $newRealization->setId($realization[0]);
+            $newRealization->setImage($realization[1]);
+            $newRealization->setTitle($realization[2]);
+            $newRealization->setCategories(explode(',', $realization[3]));
+            $newRealization->setOrder($realization[4]);
+            array_push($realizations, $newRealization);
+        }
+        return $realizations;
+    }
+
+    /**
+     * @return Realization|false
+     */
+    public function findLast()
+    {
+        $all = $this->findAll();
+        if (empty($all)) {
+            return false;
+        }
+        return array_pop($all);
+    }
 
     /**
      * @param string $url
@@ -165,14 +45,104 @@ class RealizationRepository
     public function findByUrl($url)
     {
         $realizations = array();
-        foreach ($this->data as $realization) {
-            if (in_array($url, $realization['categories'])) {
-                $newRealization = new Realization();
-                $newRealization->setImage($realization['image']);
-                $newRealization->setTitle($realization['title']);
-                array_push($realizations, $newRealization);
+        foreach ($this->findAll() as $realization) {
+            if (in_array($url, $realization->getCategories())) {
+                array_push($realizations, $realization);
+            }
+        }
+        return $this->_sortByOrder($realizations);
+    }
+
+    /**
+     * @param array $realizations
+     * @return array
+     */
+    protected function _sortByOrder($realizations)
+    {
+        for ($i=0 ; $i<count($realizations)-1 ; $i++) {
+            for ($j=$i+1 ; $j<count($realizations) ; $j++) {
+                if ($realizations[$i]->getOrder() > $realizations[$j]->getOrder()) {
+                    $tmp = $realizations[$i];
+                    $realizations[$i] = $realizations[$j];
+                    $realizations[$j] = $tmp;
+                }
             }
         }
         return $realizations;
+    }
+
+    /**
+     * @param $id
+     * @return bool|Realization
+     */
+    public function find($id)
+    {
+        foreach ($this->findAll() as $realization) {
+            if ($realization->getId() == $id) {
+                return $realization;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param Realization $realization
+     */
+    public function add($realization)
+    {
+        $dir = dirname(__DIR__);
+        $file = 'Files/realizations.csv';
+        file_put_contents(
+            $dir . DIRECTORY_SEPARATOR . $file,
+            PHP_EOL . $realization->getAsCsvLine(),
+            FILE_APPEND | LOCK_EX
+        );
+    }
+
+    /**
+     * @param Realization $deletedRealization
+     */
+    public function delete($deletedRealization)
+    {
+        $dir = dirname(__DIR__);
+        $file = 'Files/realizations.csv';
+        $newCsv = '';
+        foreach ($this->findAll() as $realization) {
+            if ($realization->getImage() !== $deletedRealization->getImage()) {
+                $newCsv .= $realization->getAsCsvLine() . PHP_EOL;
+            }
+        }
+        $newCsv = rtrim($newCsv, PHP_EOL);
+        file_put_contents(
+            $dir . DIRECTORY_SEPARATOR . $file,
+            $newCsv,
+            LOCK_EX
+        );
+    }
+
+    /**
+     * @param Realization $updatedRealization
+     */
+    public function update($updatedRealization)
+    {
+        $dir = dirname(__DIR__);
+        $file = 'Files/realizations.csv';
+        $newCsv = '';
+        foreach ($this->findAll() as $realization) {
+            if ($realization->getId() !== $updatedRealization->getId()) {
+                $newCsv .= $realization->getAsCsvLine() . PHP_EOL;
+            } else {
+                $updatedRealization->setImage(
+                    $realization->getImage()
+                );
+                $newCsv .= $updatedRealization->getAsCsvLine() . PHP_EOL;
+            }
+        }
+        $newCsv = rtrim($newCsv, PHP_EOL);
+        file_put_contents(
+            $dir . DIRECTORY_SEPARATOR . $file,
+            $newCsv,
+            LOCK_EX
+        );
     }
 }

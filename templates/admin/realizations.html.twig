@@ -1,0 +1,84 @@
+{% extends "admin/base.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        {% if edition == false %}
+            <div class="col-4 offset-4">
+                <a class="btn btn-dark btn-block mb-3" data-toggle="collapse" href="#collapseRealization" role="button" aria-expanded="false" aria-controls="collapseRealization">Dodaj nową realizację</a>
+            </div>
+        {% endif %}
+        <div class="col-8 offset-2 collapse {% if edition != false %}show{% endif %}" id="collapseRealization">
+            {{ form_start(realization_form) }}
+            {% if edition == false %}
+                <div class="form-group row">
+                    <label for="realization_form_image" class="col-sm-2 col-form-label text-right">{{ form_label(realization_form.image) }}</label>
+                    <div class="col-sm-10">
+                        {{ form_widget(realization_form.image) }}
+                    </div>
+                </div>
+            {% else %}
+                <div class="form-group row">
+                    <div class="col-sm-4 offset-4">
+                        <img style="width: 100%" src="/images/{{ edition }}" /> Zdjęcia nie można edytować
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-group row">
+                <label for="realization_form_title" class="col-sm-2 col-form-label text-right">{{ form_label(realization_form.title) }}</label>
+                <div class="col-sm-10">
+                    {{ form_widget(realization_form.title) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="realization_form_categories" class="col-sm-2 col-form-label text-right">{{ form_label(realization_form.categories) }}</label>
+                <div class="col-sm-10">
+                    {{ form_widget(realization_form.categories) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="realization_form_order" class="col-sm-2 col-form-label text-right">{{ form_label(realization_form.order) }}</label>
+                <div class="col-sm-10">
+                    {{ form_widget(realization_form.order) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4 offset-4">
+                    {{ form_widget(realization_form.submit) }}
+                </div>
+            </div>
+            {{ form_end(realization_form) }}
+        </div>
+    </div>
+    <table class="table table-striped table-hover table-fixed" id="realizations">
+        <thead>
+        <tr>
+            <th scope="col">Obrazek</th>
+            <th scope="col">Tytuł</th>
+            <th scope="col">Kategorie</th>
+            <th scope="col">Kolejność</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for realization in realizations %}
+            <tr>
+                <td><img src="/images/{{ realization.image }}" /></td>
+                <td>{{ realization.title }}</td>
+                <td><ul>
+                        {% for category in realization.categories %}
+                            <li>{{ category }}</li>
+                        {% endfor %}
+                    </ul></td>
+                <td>{{ realization.order }}</td>
+                <td>
+                    <form method="POST" name="edit_delete_realization">
+                        <input name="id" type="hidden" value="{{ realization.id }}" />
+                        <button type="submit" name="action" value="edit" class="btn btn-outline-primary mb-2"><i class="fas fa-edit"></i> Edytuj</button>
+                        <button type="submit" name="action" value="delete" class="btn btn-outline-danger mb-1" onClick="if(confirm('Czy na pewno chcesz to usunąć?')){ this.form.submit() }else{return false;}"><i class="fas fa-trash-alt"></i> Usuń</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

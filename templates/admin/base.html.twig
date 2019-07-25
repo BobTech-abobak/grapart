@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>CMS - Studio Reklamy Grapart</title>
+    <meta name="description" content="{% block description 'Grapart zajmujemy się kompleksową obsługą reklamową oraz poligraficzną firm, instytucji oraz klientów indywidualnych.' %}">
+    <meta name="keywords" content="{% block keywords 'Studio Reklamy, Studio Reklamy Podhale, Grapart, Reklama Podhale, Reklama Ząb, Ząb, Reklama Ząb, Studio Reklamy Ząb' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    {{ encore_entry_link_tags('admin') }}
+</head>
+<body>
+<div class="container-fluid main-container">
+    <div class="row">
+        <div class="col-10 offset-1 mt-5">
+            <div class="jumbotron">
+                <h1 class="display-4">System zarządzania treścią</h1>
+                <a href="{{ path('index') }}" target="_blank" class="btn btn-secondary">Przejdź do widoku strony</a>
+                <hr class="my-4">
+                <a href="{{ path('admin_projects') }}" class="btn btn-info">Zarządzanie realizacjami</a>
+            </div>
+        </div>
+        <div class="col-10 offset-1">
+            <div class="jumbotron">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{{ encore_entry_script_tags('admin') }}
+</body>
+</html>

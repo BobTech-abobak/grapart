@@ -51,8 +51,8 @@
         <div class="row">
             {% for realization in realizations %}
                 <div class="col-6 col-sm-4 col-lg-3 mt-3">
-                    <a href="{{ asset('build/images/'~realization.image) }}" data-toggle="lightbox" data-title="{{ realization.title }}" data-gallery="galeria-realizacji">
-                        <img class="img-fluid img-thumbnail" src="{{ asset('build/images/'~realization.image) }}" alt="{{ realization.title }}" />
+                    <a href="/images/{{ realization.image }}" data-toggle="lightbox" data-title="{{ realization.title }}" data-gallery="galeria-realizacji">
+                        <img class="img-fluid img-thumbnail" src="/images/{{ realization.image }}" alt="{{ realization.title }}" />
                     </a>
                 </div>
             {% endfor %}

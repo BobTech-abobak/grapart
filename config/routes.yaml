@@ -18,6 +18,14 @@ sitemap_xml:
     path: /sitemap.xml
     controller: App\Controller\SitemapController::xml
 
+admin:
+    path: /ck6mXWy7DM8X
+    controller: App\Controller\AdminController::index
+
+admin_projects:
+    path: /ck6mXWy7DM8X/realizacje
+    controller: App\Controller\AdminController::projects
+
 category:
     path: /{url}
     controller: App\Controller\DefaultController::category
