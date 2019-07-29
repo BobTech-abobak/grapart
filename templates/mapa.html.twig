@@ -24,23 +24,25 @@
             <li>Oferta
                 <ul>
                     {% for submenu in menu %}
-                        {% if submenu.children is defined %}
-                            <li>{{ submenu.label }}</li>
+                        {% if submenu.url is empty %}
+                            <li>{{ submenu.name }}</li>
+                        {% else %}
+                            <li>
+                                <a href="{{ path('category', {'url': submenu.url}) }}">
+                                    {{ submenu.name|e }}
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if submenu.children is not empty %}
                             <ul>
                                 {% for item in submenu.children %}
                                     <li>
                                         <a href="{{ path('category', {'url': item.url}) }}">
-                                            {{ item.label|e }}
+                                            {{ item.name|e }}
                                         </a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                        {% else %}
-                            <li>
-                                <a href="{{ path('category', {'url': submenu.url}) }}">
-                                    {{ submenu.label|e }}
-                                </a>
-                            </li>
                         {% endif %}
                     {% endfor %}
                 </ul>

@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block menu_block %}
+    {# Desktop View #}
+    <ul class="menu">
+        {% for menu_category in menu %}
+            {% if menu_category.url is empty %}
+                <li>{{ menu_category.name }}</li>
+            {% else %}
+                <li>
+                    <a href="{{ path('category', {'url': menu_category.url}) }}" {% if category is defined and category.url == menu_category.url %}class="active"{% endif %}>
+                        {{ menu_category.name|e }}
+                    </a>
+                </li>
+            {% endif %}
+            {% if menu_category.children is not empty %}
+                <li>
+                    <ul>
+                        {% for item in menu_category.children %}
+                            <li>
+                                <a href="{{ path('category', {'url': item.url}) }}" {% if category is defined and category.url == item.url %}class="active"{% endif %}>
+                                    {{ item.name|e }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

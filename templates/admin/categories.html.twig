@@ -1,0 +1,80 @@
+{% extends "admin/base.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        {% if edition == false %}
+            <div class="col-4 offset-4">
+                <a class="btn btn-dark btn-block mb-3" data-toggle="collapse" href="#collapseCategory" role="button" aria-expanded="false" aria-controls="collapseCategory">Dodaj nową kategorię</a>
+            </div>
+        {% endif %}
+        <div class="col-8 offset-2 collapse {% if edition != false %}show{% endif %}" id="collapseCategory">
+            {{ form_start(category_form) }}
+            <div class="form-group row">
+                <label for="category_form_name" class="col-sm-2 col-form-label text-right">{{ form_label(category_form.name) }}</label>
+                <div class="col-sm-10">
+                    {{ form_widget(category_form.name) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="category_form_url" class="col-sm-2 col-form-label text-right">{{ form_label(category_form.url) }}</label>
+                <div class="col-sm-10">
+                    {{ form_widget(category_form.url) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="category_form_template" class="col-sm-2 col-form-label text-right">{{ form_label(category_form.template) }}</label>
+                <div class="col-sm-10">
+                    {{ form_widget(category_form.template) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="category_form_parent" class="col-sm-2 col-form-label text-right">{{ form_label(category_form.parent) }}</label>
+                <div class="col-sm-10">
+                    {{ form_widget(category_form.parent) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="category_form_order" class="col-sm-2 col-form-label text-right">{{ form_label(category_form.order) }}</label>
+                <div class="col-sm-10">
+                    {{ form_widget(category_form.order) }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4 offset-4">
+                    {{ form_widget(category_form.submit) }}
+                </div>
+            </div>
+            {{ form_end(category_form) }}
+        </div>
+    </div>
+    <table class="table table-striped table-hover table-fixed" id="categories">
+        <thead>
+        <tr>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Adres URL</th>
+            <th scope="col">Szablon pliku</th>
+            <th scope="col">Kategoria nadrzędna</th>
+            <th scope="col">Kolejność</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.name }}</td>
+                <td>{{ category.url }}</td>
+                <td>{{ category.template }}</td>
+                <td>{% if category.parent is not empty %}{{ categories[category.parent].name }}{% endif %}</td>
+                <td>{{ category.order }}</td>
+                <td>
+                    <form method="POST" name="edit_delete_realization">
+                        <input name="id" type="hidden" value="{{ category.id }}" />
+                        <button type="submit" name="action" value="edit" class="btn btn-outline-primary mb-2"><i class="fas fa-edit"></i> Edytuj</button>
+                        <button type="submit" name="action" value="delete" class="btn btn-outline-danger mb-1" onClick="if(confirm('Czy na pewno chcesz to usunąć?')){ this.form.submit() }else{return false;}"><i class="fas fa-trash-alt"></i> Usuń</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

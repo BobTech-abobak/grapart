@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Entity\Menu;
+use App\Repository\CategoriesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -11,13 +11,13 @@ class SitemapController extends AbstractController
 
     public function xml()
     {
-        $menu = new Menu();
+        $categories = new CategoriesRepository();
 
         $response = new Response();
         $response->headers->set('Content-Type', 'xml');
 
         return $this->render('sitemap.xml.twig', [
-            'menu' => $menu->getMenu(),
+            'menu' => $categories->getMenu(),
             'base_url' => self::BASE_URL
         ], $response);
     }

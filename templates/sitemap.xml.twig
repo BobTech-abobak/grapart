@@ -2,25 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>{{ base_url }}{{ path('index') }}</loc>
-        <lastmod>2019-03-04</lastmod>
+        <lastmod>2019-07-29</lastmod>
     </url>
     <url>
         <loc>{{ base_url }}{{ path('contact') }}</loc>
-        <lastmod>2019-03-04</lastmod>
+        <lastmod>2019-07-29</lastmod>
     </url>
     {% for submenu in menu %}
+        {% if submenu.url is not empty %}
+            <url>
+                <loc>{{ base_url }}{{ path('category', {'url': submenu.url}) }}</loc>
+                <lastmod>2019-07-29</lastmod>
+            </url>
+        {% endif %}
         {% if submenu.children is defined %}
             {% for item in submenu.children %}
                 <url>
                     <loc>{{ base_url }}{{ path('category', {'url': item.url}) }}</loc>
-                    <lastmod>2019-03-04</lastmod>
+                    <lastmod>2019-07-29</lastmod>
                 </url>
             {% endfor %}
-        {% else %}
-            <url>
-                <loc>{{ base_url }}{{ path('category', {'url': submenu.url}) }}</loc>
-                <lastmod>2019-03-04</lastmod>
-            </url>
         {% endif %}
     {% endfor %}
 </urlset>

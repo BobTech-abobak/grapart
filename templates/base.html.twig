@@ -86,13 +86,13 @@
             <a href="#" class="menu-mobile-close">&times;</a>
             <a href="{{ path('index') }}">Strona główna</a>
             <hr class="article-separator">
-            {% for category in menu %}
-                {% if category.children is defined %}
-                    {% for item in category.children %}
-                        <a href="{{ path('category', {'url': item.url}) }}">{{  item.label|e }}</a>
+            {% for menu_category in menu %}
+                {% if menu_category.children is not empty %}
+                    {% for item in menu_category.children %}
+                        <a href="{{ path('category', {'url': item.url}) }}">{{  item.name|e }}</a>
                     {% endfor %}
                 {% else %}
-                    <a href="{{ path('category', {'url': category.url}) }}">{{ category.label|e }}</a>
+                    <a href="{{ path('category', {'url': menu_category.url}) }}">{{ menu_category.name|e }}</a>
                 {% endif %}
             {% endfor %}
             <hr class="article-separator">

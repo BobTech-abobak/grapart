@@ -26,6 +26,10 @@ admin_projects:
     path: /ck6mXWy7DM8X/realizacje
     controller: App\Controller\AdminController::projects
 
+admin_categories:
+    path: /ck6mXWy7DM8X/kategorie
+    controller: App\Controller\AdminController::categories
+
 category:
     path: /{url}
     controller: App\Controller\DefaultController::category

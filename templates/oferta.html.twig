@@ -1,45 +1,16 @@
-{% extends "base.html.twig" %}
+{% extends "base_2columns.html.twig" %}
 
 {% block title %}
-    {{ category.label }}
+    {{ category.name }}
 {% endblock %}
 
 {% block breadcrumb %}
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ path('index') }}">Strona główna</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ category.label }}</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
         </ol>
     </nav>
-{% endblock %}
-
-{% block menu_block %}
-    <ul class="menu">
-        {% for submenu in menu %}
-            {% if submenu.children is defined %}
-                <li>{{ submenu.label }}</li>
-                <li>
-                    <ul>
-                        {% for item in submenu.children %}
-                            <li>
-                                <a href="{{ path('category', {'url': item.url}) }}"
-                                   {% if item.url == category.url %}class="active"{% endif %}>
-                                    {{ item.label|e }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% else %}
-                <li>
-                    <a href="{{ path('category', {'url': submenu.url}) }}"
-                       {% if submenu.url == category.url %}class="active"{% endif %}>
-                        {{ submenu.label|e }}
-                    </a>
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
 {% endblock %}
 
 {% block content %}

@@ -23,6 +23,14 @@ class Realization
     protected $order;
 
     /**
+     * Realization constructor.
+     */
+    public function __construct()
+    {
+        $this->categories = array();
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -91,6 +99,16 @@ class Realization
     public function setCategories($categoriesArray)
     {
         $this->categories = $categoriesArray;
+        return $this;
+    }
+
+    /**
+     * @param Category $category
+     * @return $this
+     */
+    public function addCategory($category)
+    {
+        array_push($this->categories, $category);
         return $this;
     }
 

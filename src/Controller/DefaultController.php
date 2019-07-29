@@ -2,8 +2,8 @@
 namespace App\Controller;
 
 use App\Entity\Mail;
-use App\Entity\Menu;
 use App\Form\ContactFormType;
+use App\Repository\CategoriesRepository;
 use App\Repository\RealizationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,28 +15,27 @@ class DefaultController extends AbstractController
 
     public function index()
     {
-        $menu = new Menu();
-
+        $categories = new CategoriesRepository();
         $mail = new Mail();
         $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
 
         return $this->render('index.html.twig', [
-            'menu' => $menu->getMenu(),
+            'menu' => $categories->getMenu(),
             'contact_form' => $form->createView()
         ]);
     }
 
     public function category($url)
     {
-        $menu = new Menu();
-        $category = $menu->getCategoryByUrl($url);
+        $categories = new CategoriesRepository();
+        $category = $categories->findByUrl($url);
 
         $mail = new Mail();
         $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
         $realizations = new RealizationRepository();
 
-        return $this->render(self::DIRECTORY_NAME . DIRECTORY_SEPARATOR . $category['file'], [
-            'menu' => $menu->getMenu(),
+        return $this->render(self::DIRECTORY_NAME . DIRECTORY_SEPARATOR . $category->getTemplate(), [
+            'menu' => $categories->getMenu(),
             'category' => $category,
             'realizations' => $realizations->findByUrl($url),
             'contact_form' => $form->createView()
@@ -45,14 +44,14 @@ class DefaultController extends AbstractController
 
     public function contact()
     {
-        $menu = new Menu();
+        $categories = new CategoriesRepository();
 
         $mail = new Mail();
         $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
 
 
         return $this->render('kontakt.html.twig', [
-            'menu' => $menu->getMenu(),
+            'menu' => $categories->getMenu(),
             'contact_form' => $form->createView()
         ]);
     }
@@ -90,14 +89,14 @@ class DefaultController extends AbstractController
 
     public function sitemap()
     {
-        $menu = new Menu();
+        $categories = new CategoriesRepository();
 
         $mail = new Mail();
         $form = $this->createForm(ContactFormType::class, $mail);
 
 
         return $this->render('mapa.html.twig', [
-            'menu' => $menu->getMenu(),
+            'menu' => $categories->getMenu(),
             'contact_form' => $form->createView()
         ]);
     }

@@ -66,7 +66,7 @@
                 <td>{{ realization.title }}</td>
                 <td><ul>
                         {% for category in realization.categories %}
-                            <li>{{ category }}</li>
+                            <li>{{ category.name }}</li>
                         {% endfor %}
                     </ul></td>
                 <td>{{ realization.order }}</td>

@@ -1,6 +1,7 @@
 <?php
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Realization;
 
 class RealizationRepository
@@ -13,14 +14,21 @@ class RealizationRepository
         $dir = dirname(__DIR__);
         $file = 'Files/realizations.csv';
         $csv = array_map('str_getcsv', file($dir . DIRECTORY_SEPARATOR . $file));
+        $categories = new CategoriesRepository();
         $realizations = array();
         foreach ($csv as $realization) {
             $newRealization = new Realization();
             $newRealization->setId($realization[0]);
             $newRealization->setImage($realization[1]);
             $newRealization->setTitle($realization[2]);
-            $newRealization->setCategories(explode(',', $realization[3]));
             $newRealization->setOrder($realization[4]);
+            foreach (explode(',', $realization[3]) as $category) {
+                try {
+                    $newRealization->addCategory(
+                        $categories->find($category)
+                    );
+                } catch (\Exception $exception) {}
+            }
             array_push($realizations, $newRealization);
         }
         return $realizations;
@@ -46,8 +54,12 @@ class RealizationRepository
     {
         $realizations = array();
         foreach ($this->findAll() as $realization) {
-            if (in_array($url, $realization->getCategories())) {
-                array_push($realizations, $realization);
+            /** @var Realization $realization */
+            foreach ($realization->getCategories() as $category) {
+                /** @var Category $category */
+                if ($url == $category->getUrl()) {
+                    array_push($realizations, $realization);
+                }
             }
         }
         return $this->_sortByOrder($realizations);
