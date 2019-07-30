@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-    {% block content_offer %}{% endblock %}
+    {{ static_content | raw }}
     {% if realizations is not empty %}
         <br />
         <hr class="article-separator">

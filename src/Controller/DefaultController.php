@@ -5,14 +5,13 @@ use App\Entity\Mail;
 use App\Form\ContactFormType;
 use App\Repository\CategoriesRepository;
 use App\Repository\RealizationRepository;
+use App\Repository\StaticSitesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends AbstractController
 {
-    const DIRECTORY_NAME = "static_sites";
-
     public function index()
     {
         $categories = new CategoriesRepository();
@@ -29,14 +28,17 @@ class DefaultController extends AbstractController
     {
         $categories = new CategoriesRepository();
         $category = $categories->findByUrl($url);
+        $realizations = new RealizationRepository();
+        $staticSites = new StaticSitesRepository();
+        $staticSite = $staticSites->find($category->getTemplate());
 
         $mail = new Mail();
         $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
-        $realizations = new RealizationRepository();
 
-        return $this->render(self::DIRECTORY_NAME . DIRECTORY_SEPARATOR . $category->getTemplate(), [
+        return $this->render('oferta.html.twig', [
             'menu' => $categories->getMenu(),
             'category' => $category,
+            'static_content' => $staticSite->getContent(),
             'realizations' => $realizations->findByUrl($url),
             'contact_form' => $form->createView()
         ]);

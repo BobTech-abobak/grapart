@@ -3,11 +3,15 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Realization;
+use App\Entity\StaticSite;
 use App\Form\CategoryFormType;
 use App\Form\RealizationFormType;
+use App\Form\StaticSiteFormType;
 use App\Repository\CategoriesRepository;
 use App\Repository\RealizationRepository;
+use App\Repository\StaticSitesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -161,6 +165,56 @@ class AdminController extends AbstractController
         return $this->render('admin/realizations.html.twig', [
             'realizations' => $realizations->findAll(),
             'realization_form' => $form->createView(),
+            'edition' => $edition
+        ]);
+    }
+
+    public function staticSites(Request $request)
+    {
+        $staticSite = new StaticSite();
+        $staticSitesRepository = new StaticSitesRepository();
+        $edition = false;
+        $dir = $this->getParameter('kernel.project_dir') . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'static_sites';
+        $form = $this->createForm(StaticSiteFormType::class, $staticSite, array(
+            'edit' => boolval(array_key_exists('static_site_form', $_POST) && !empty($_POST['static_site_form']['id']))
+        ));
+        if (array_key_exists('action', $_POST)) {
+            switch ($_POST['action']) {
+                case 'edit':
+                    $staticSite = $staticSitesRepository->find($_POST['id']);
+                    $form = $this->createForm(StaticSiteFormType::class, $staticSite, array(
+                        'edit' => true
+                    ));
+                    $edition = true;
+                    break;
+                case 'delete':
+                    $staticSite = $staticSitesRepository->find($_POST['id']);
+                    $fileSystem = new Filesystem();
+                    if ($fileSystem->exists($dir . DIRECTORY_SEPARATOR . $staticSite->getName())) {
+                        $fileSystem->remove($dir . DIRECTORY_SEPARATOR . $staticSite->getName());
+                    }
+                    return $this->redirectToRoute('admin_static_sites');
+                    break;
+            }
+        }
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $fileSystem = new Filesystem();
+            if (!$fileSystem->exists($dir . DIRECTORY_SEPARATOR . $staticSite->getName())) {
+                try {
+                    $fileSystem->dumpFile($dir . DIRECTORY_SEPARATOR . $staticSite->getName(), '');
+                } catch (\Exception $exception) {
+                    var_dump($exception->getMessage());
+                }
+            } else {
+                $staticSitesRepository->update($staticSite);
+                return $this->redirectToRoute('admin_static_sites');
+            }
+            return $this->redirectToRoute('admin_static_sites');
+        }
+        return $this->render('admin/static_sites.html.twig', [
+            'templates' => $staticSitesRepository->findAllWithCategories(),
+            'form' => $form->createView(),
             'edition' => $edition
         ]);
     }

@@ -114,6 +114,22 @@ class CategoriesRepository
     }
 
     /**
+     * @param string $file
+     * @return array
+     */
+    public function findByTemplate($file)
+    {
+        $categories = array();
+        foreach ($this->findAll() as $category) {
+            /** @var Category $category */
+            if (strcmp($file, $category->getTemplate()) == 0 ) {
+                $categories[] = $category;
+            }
+        }
+        return $categories;
+    }
+
+    /**
      * @param Category $category
      */
     public function add($category)

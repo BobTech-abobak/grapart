@@ -30,6 +30,10 @@ admin_categories:
     path: /ck6mXWy7DM8X/kategorie
     controller: App\Controller\AdminController::categories
 
+admin_static_sites:
+    path: /ck6mXWy7DM8X/strony_statyczne
+    controller: App\Controller\AdminController::staticSites
+
 category:
     path: /{url}
     controller: App\Controller\DefaultController::category

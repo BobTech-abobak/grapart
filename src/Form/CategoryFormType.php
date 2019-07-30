@@ -22,11 +22,12 @@ class CategoryFormType extends AbstractType
             ->add('id', HiddenType::class, [])
             ->add('url', TextType::class, [
                 'attr' => ['class' => 'form-control'],
-                'label' => 'Adres URL'
+                'label' => 'Adres URL',
+                'required' => false
             ])
             ->add('template', ChoiceType::class, [
                 'attr' => ['class' => 'form-control'],
-                'label' => 'Szablon pliku',
+                'label' => 'Strona statyczna',
                 'choices' => $options['templates'],
                 'required'   => false,
             ])
