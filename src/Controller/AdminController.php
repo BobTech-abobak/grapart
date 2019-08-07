@@ -100,6 +100,7 @@ class AdminController extends AbstractController
         $realizations = new RealizationRepository();
         $categories = new CategoriesRepository();
         $categoriesSelect = array();
+        $dir = $this->getParameter('kernel.project_dir') . DIRECTORY_SEPARATOR . 'public_html' . DIRECTORY_SEPARATOR . 'images';
         $edition = false;
         foreach ($categories->findAll() as $category) {
             /** @var Category $category */
@@ -130,7 +131,7 @@ class AdminController extends AbstractController
                 // Move the file to the directory where brochures are stored
                 try {
                     $image->move(
-                        $this->getParameter('kernel.project_dir') . DIRECTORY_SEPARATOR . 'public_html' . DIRECTORY_SEPARATOR . 'images',
+                        $dir,
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -160,6 +161,10 @@ class AdminController extends AbstractController
                     $realization = $realizations->find($_POST['id']);
                     if ($realization !== false) {
                         $realizations->delete($realization);
+                        $fileSystem = new Filesystem();
+                        if ($fileSystem->exists($dir . DIRECTORY_SEPARATOR . $realization->getImage())) {
+                            $fileSystem->remove($dir . DIRECTORY_SEPARATOR . $realization->getImage());
+                        }
                         return $this->redirectToRoute('admin_projects', array());
                     }
                     break;
