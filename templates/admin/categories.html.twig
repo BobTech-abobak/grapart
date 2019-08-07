@@ -2,6 +2,10 @@
 
 {% block content %}
     <div class="row">
+        <div class="col-8 offset-2">
+            {% form_theme category_form 'form.html.twig' %}
+            {{ form_errors(category_form) }}
+        </div>
         {% if edition == false %}
             <div class="col-4 offset-4">
                 <a class="btn btn-dark btn-block mb-3" data-toggle="collapse" href="#collapseCategory" role="button" aria-expanded="false" aria-controls="collapseCategory">Dodaj nową kategorię</a>

@@ -135,6 +135,10 @@ class AdminController extends AbstractController
                     );
                 } catch (FileException $e) {
                     var_dump($e->getMessage());
+                    die;
+                } catch (\Exception $e) {
+                    var_dump($e->getMessage());
+                    die;
                 }
                 $realization->setImage($newFilename);
                 // Add new
