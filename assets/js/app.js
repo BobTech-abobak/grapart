@@ -17,9 +17,6 @@ require('../css/footer.css');
 require('../css/header.css');
 require('../css/menu.css');
 
-// Add images
-require('./images.js');
-
 $(document).ready(function(){
     // Menu animation
     $(".menu-icon").on("click", function() {
@@ -30,13 +27,7 @@ $(document).ready(function(){
     });
 
     // Banner animation
-    setTimeout(function(){
-        $(".main-banner-2").fadeIn();
-    }, 1000);
-    setTimeout(function(){
-        $(".main-banner-3").fadeIn();
-    }, 2000);
-    setTimeout(function(){
-        $(".main-banner-4").fadeIn();
-    }, 3000);
+    setInterval(function (){
+        $(".main-banner-2").fadeToggle("slow");
+    }, 5000);
 });
