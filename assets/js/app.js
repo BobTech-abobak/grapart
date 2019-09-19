@@ -25,9 +25,4 @@ $(document).ready(function(){
     $(".menu-mobile").on("click", function() {
         $(".menu-mobile").css('width', '0px');
     });
-
-    // Banner animation
-    setInterval(function (){
-        $(".main-banner-2").fadeToggle("slow");
-    }, 5000);
 });
