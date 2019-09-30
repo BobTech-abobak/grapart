@@ -12,11 +12,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends AbstractController
 {
-    public function index()
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function index(Request $request)
     {
         $categories = new CategoriesRepository();
         $mail = new Mail();
-        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
+        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail'), 'url' => $request->getUri()]);
 
         return $this->render('index.html.twig', [
             'menu' => $categories->getMenu(),
@@ -24,7 +28,12 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    public function category($url)
+    /**
+     * @param Request $request
+     * @param $url
+     * @return Response
+     */
+    public function category(Request $request, $url)
     {
         $categories = new CategoriesRepository();
         $category = $categories->findByUrl($url);
@@ -33,7 +42,7 @@ class DefaultController extends AbstractController
         $staticSite = $staticSites->find($category->getTemplate());
 
         $mail = new Mail();
-        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
+        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail'), 'url' => $request->getUri()]);
 
         return $this->render('oferta.html.twig', [
             'menu' => $categories->getMenu(),
@@ -44,12 +53,16 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    public function contact()
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function contact(Request $request)
     {
         $categories = new CategoriesRepository();
 
         $mail = new Mail();
-        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
+        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail'), 'url' => $request->getUri()]);
 
 
         return $this->render('kontakt.html.twig', [
@@ -58,36 +71,39 @@ class DefaultController extends AbstractController
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @param \Swift_Mailer $mailer
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function mail(Request $request, \Swift_Mailer $mailer)
     {
         $mail = new Mail();
-        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail')]);
+        $form = $this->createForm(ContactFormType::class, $mail, ['action' => $this->generateUrl('send_mail'), 'url' => $request->headers->get('referer')]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Mail $task */
             $task = $form->getData();
-            var_dump($task);
-
-            $message = (new \Swift_Message('Hello Email'))
+            $title = 'Formularz kontaktowy grapart.pl - ' . $task->getDate()->format('Y-m-d H:i:s');
+            $message = (new \Swift_Message($title))
                 ->setFrom('webmaster@grapart.pl')
                 ->setBody(
                     $this->renderView(
-                        'emails/contact.html.twig'
+                        'emails/contact.html.twig',
+                        ['mail' => $task]
                     ),
                     'text/html'
                 )
             ;
-            var_dump('wysyłam maila');
-            var_dump($mailer->send($message, $failures));
             if (!$mailer->send($message, $failures))
             {
-                echo "Failures:";
-                print_r($failures);
+                $this->addFlash('danger', 'Wystąpił błąd podczas wysyłania maila.');
+            } else {
+                $this->addFlash('success', 'Wiadomość kontaktowa została wysłana. Skontaktujemy się z Państwem!');
             }
-            die;
-//            return $this->redirectToRoute('task_success');
         }
+        return $this->redirect($request->headers->get('referer'));
     }
-
 
     public function sitemap()
     {

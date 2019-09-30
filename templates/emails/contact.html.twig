@@ -1,0 +1,13 @@
+<h3>Wiadomość wygenerowana za pomocą formularza kontaktowego</h3>
+<ul>
+    <li>Strona z której zostało wysłane zapytanie: {{ mail.url }}</li>
+    <li>Data wysłania wiadomości: {{ mail.date|date("Y-m-d H:i:s") }}</li>
+    <li>Dane kontaktowe nadawcy:
+        <ul>
+            <li>Adres e-mail: {{ mail.email }}</li>
+            <li>Numer telefonu: {{ mail.phone }}</li>
+        </ul>
+    </li>
+</ul>
+<hr />
+{{ mail.content }}

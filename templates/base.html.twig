@@ -30,7 +30,7 @@
             </a>
         </div>
         <div class="col-lg-3 col-2 text-center">
-            <a class="mail-link" href="mailto:reklama@grapart.pl">
+            <a class="mail-link" href="#" data-toggle="modal" data-target="#modalMessage">
                 <i class="fas fa-envelope fa-2x header-icon d-lg-none"></i>
                 <i class="fas fa-envelope fa-1x header-icon d-none d-lg-inline"></i>
                 &nbsp;&nbsp;
@@ -106,8 +106,14 @@
             </div>
         {% endif %}
         <div class="{% if menu_block is not empty %}col-lg-8 offset-lg-0{% else %}offset-lg-2 col-lg-8{% endif %} col-10 offset-1" id="main-content">
-
             {% block breadcrumb %}{% endblock %}
+            {% for label, messages in app.flashes(['success', 'warning']) %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
             {% block content %}{% endblock %}
         </div>
         <div class="col-1"></div>
@@ -140,16 +146,25 @@
                 {% form_theme contact_form 'form.html.twig' %}
                 {{ form_start(contact_form) }}
                 <div class="modal-body">
-
                     {{ form_errors(contact_form.email) }}
                     <div class="form-row align-items-center">
                         <div class="col-lg-6">
-                            <i class="fas fa-at"></i> {{ form_widget(contact_form.email) }}
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="email-addon"><i class="fas fa-at"></i></span>
+                                </div>
+                                {{ form_widget(contact_form.email) }}
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <i class="fas fa-phone"></i> {{ form_widget(contact_form.phone) }}
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="phone-addon"><i class="fas fa-phone"></i></span>
+                                </div>
+                                {{ form_widget(contact_form.phone) }}
+                            </div>
                         </div>
-                        <small id="emailHelp" class="form-text text-muted">Podaj swój adres e-mail lub numer telefonu, dzieki temu bęziemy mogli się z Tobą skontaktować</small>
+                        <small id="emailHelp" class="form-text text-muted">Podaj swój adres e-mail lub numer telefonu, dzieki temu będziemy mogli się z Tobą skontaktować</small>
                     </div>
                     <div class="form-row align-items-center mt-3">
                         <div class="col-lg-12">

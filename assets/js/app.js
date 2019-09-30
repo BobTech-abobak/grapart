@@ -25,4 +25,18 @@ $(document).ready(function(){
     $(".menu-mobile").on("click", function() {
         $(".menu-mobile").css('width', '0px');
     });
+
+    $("form[name=\"contact_form\"]").submit(function( event ) {
+        var email = $(this).find("input[id$=\"email\"]");
+        var phone = $(this).find("input[id$=\"phone\"]");
+        if (email.val() == '' && phone.val() == '') {
+            $("#emailHelp").addClass("text-notvalidated").removeClass("text-muted");
+            setTimeout(function () {
+                $("#emailHelp").removeClass("text-notvalidated").addClass("text-muted");
+            }, 3000)
+            event.preventDefault();
+        } else {
+            $(this).submit();
+        }
+    });
 });
