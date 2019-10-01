@@ -15,6 +15,12 @@
 
 {% block content %}
     {{ static_content | raw }}
+    <div class="mt-4">
+        <button type="button" class="btn btn-outline-light p-1" data-toggle="modal" data-target="#modalMessage">
+            &nbsp;&nbsp;Zapytaj o ofertę
+            &nbsp;&nbsp;<i class="fas fa-comments-dollar"></i>&nbsp;&nbsp;
+        </button>
+    </div>
     {% if realizations is not empty %}
         <br />
         <hr class="article-separator">
