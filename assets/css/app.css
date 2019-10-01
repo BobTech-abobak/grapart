@@ -33,3 +33,24 @@ body {
 .text-notvalidated {
     color: #FF0000;
 }
+
+.realizations-more-than-3 {
+    text-align: justify;
+    text-align-last: center;
+}
+
+.realizations a:hover {
+    text-decoration: none;
+}
+
+.realizations img {
+    display:inline-block;
+    max-height: 100px;
+}
+
+@media (min-width: 992px) {
+    .realizations img {
+        display:inline-block;
+        max-height: 200px;
+    }
+}
