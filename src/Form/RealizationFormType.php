@@ -31,7 +31,8 @@ class RealizationFormType extends AbstractType
                 'attr' => ['class' => 'form-control'],
                 'label' => 'Kategorie',
                 'choices'  => $options['categories'],
-                'multiple' => true
+                'multiple' => true,
+                'expanded' => true
             ])
             ->add('order', IntegerType::class, [
                 'attr' => ['class' => 'form-control'],
